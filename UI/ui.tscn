@@ -1,0 +1,120 @@
+[gd_scene load_steps=7 format=3 uid="uid://4g70smrxjuxl"]
+
+[ext_resource type="Script" uid="uid://dfb6e8jowabsd" path="res://UI/ui.gd" id="1_2fwl4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fwl4"]
+bg_color = Color(1, 0.862745, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dajm1"]
+bg_color = Color(0.274651, 0.372911, 0.979631, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6gg6"]
+bg_color = Color(0.561349, 0.0156394, 0.561371, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hat8c"]
+bg_color = Color(0.413348, 0.667503, 0.983268, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sbvi"]
+bg_color = Color(0.221323, 0.501373, 0.229787, 1)
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2fwl4")
+
+[node name="ResourcesContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 488.0
+offset_bottom = 528.0
+
+[node name="Labels" type="VBoxContainer" parent="ResourcesContainer"]
+layout_mode = 2
+
+[node name="EnergyLabel" type="Label" parent="ResourcesContainer/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Energy:"
+horizontal_alignment = 2
+
+[node name="O2Label" type="Label" parent="ResourcesContainer/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "O2:"
+horizontal_alignment = 2
+
+[node name="CO2Label" type="Label" parent="ResourcesContainer/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "CO2:"
+horizontal_alignment = 2
+
+[node name="WaterLabel" type="Label" parent="ResourcesContainer/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Water:"
+horizontal_alignment = 2
+
+[node name="BiomassLabel" type="Label" parent="ResourcesContainer/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Biomass:"
+horizontal_alignment = 2
+
+[node name="ProgressBars" type="VBoxContainer" parent="ResourcesContainer"]
+layout_mode = 2
+
+[node name="EnergyProgressBar" type="ProgressBar" parent="ResourcesContainer/ProgressBars"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/fill = SubResource("StyleBoxFlat_2fwl4")
+step = 1.0
+rounded = true
+show_percentage = false
+
+[node name="O2ProgressBar" type="ProgressBar" parent="ResourcesContainer/ProgressBars"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/fill = SubResource("StyleBoxFlat_dajm1")
+step = 1.0
+rounded = true
+show_percentage = false
+
+[node name="CO2ProgressBar" type="ProgressBar" parent="ResourcesContainer/ProgressBars"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/fill = SubResource("StyleBoxFlat_e6gg6")
+step = 1.0
+rounded = true
+show_percentage = false
+
+[node name="WaterProgressBar" type="ProgressBar" parent="ResourcesContainer/ProgressBars"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/fill = SubResource("StyleBoxFlat_hat8c")
+step = 1.0
+rounded = true
+show_percentage = false
+
+[node name="BiomassProgressBar" type="ProgressBar" parent="ResourcesContainer/ProgressBars"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/fill = SubResource("StyleBoxFlat_3sbvi")
+step = 1.0
+rounded = true
+show_percentage = false

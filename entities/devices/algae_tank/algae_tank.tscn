@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cij6cpoqs1nhq"]
+
+[ext_resource type="Script" uid="uid://opc43mm6tvgg" path="res://entities/devices/algae_tank/algae_tank.gd" id="1_1dii4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dii4"]
+albedo_color = Color(0.023756, 0.655017, 7.70092e-07, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4301e"]
+material = SubResource("StandardMaterial3D_1dii4")
+top_radius = 0.75
+bottom_radius = 0.75
+height = 1.0
+radial_segments = 36
+rings = 1
+
+[node name="AlgaeTank" type="Node3D"]
+script = ExtResource("1_1dii4")
+energy_input = 2.0
+co2_input = 1.0
+water_input = 1.0
+o2_output = 1.0
+biomass_output = 1.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_4301e")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bluunyv22xape"]
+
+[ext_resource type="PackedScene" uid="uid://w2aog8t2x3qh" path="res://assets/models/BaseTile.glb" id="1_5nmkv"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="BaseTile" parent="." instance=ExtResource("1_5nmkv")]

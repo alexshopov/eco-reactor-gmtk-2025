@@ -14,3 +14,25 @@ config/name="Eco Reactor"
 run/main_scene="uid://t24sqduoweg3"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://assets/icons/icon.svg"
+
+[autoload]
+
+EventBus="*res://globals/event_bus.gd"
+Enums="*res://globals/enums.gd"
+Constants="*res://globals/constants.gd"
+ResourcesManager="*res://managers/resources_manager.gd"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
+gdscript/warnings/integer_division=0
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+
+[filesystem]
+
+import/blender/enabled=false
