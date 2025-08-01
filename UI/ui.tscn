@@ -1,6 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://4g70smrxjuxl"]
+[gd_scene load_steps=11 format=3 uid="uid://4g70smrxjuxl"]
 
 [ext_resource type="Script" uid="uid://dfb6e8jowabsd" path="res://UI/ui.gd" id="1_2fwl4"]
+[ext_resource type="StyleBox" uid="uid://5dh5qlqklgt7" path="res://resources/progress_bar_backgroundi.tres" id="2_dajm1"]
+[ext_resource type="StyleBox" uid="uid://dnp1r6bcw232f" path="res://resources/info_panel.tres" id="3_e6gg6"]
+[ext_resource type="PackedScene" uid="uid://cuopoh0k6wruj" path="res://UI/toolbar/device_button.tscn" id="4_hat8c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fwl4"]
 bg_color = Color(1, 0.862745, 0, 1)
@@ -27,13 +30,6 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7tqi"]
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.288518, 0.288518, 0.288518, 1)
-
 [node name="UI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -45,14 +41,15 @@ script = ExtResource("1_2fwl4")
 
 [node name="ResourcesContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 20.0
-offset_right = 488.0
-offset_bottom = 528.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 605.0
+offset_bottom = 538.0
+theme_override_constants/separation = 5
 
 [node name="Labels" type="VBoxContainer" parent="ResourcesContainer"]
 layout_mode = 2
-theme_override_constants/separation = 11
+theme_override_constants/separation = 37
 
 [node name="EnergyLabel" type="Label" parent="ResourcesContainer/Labels"]
 layout_mode = 2
@@ -86,13 +83,14 @@ horizontal_alignment = 2
 
 [node name="ProgressBars" type="VBoxContainer" parent="ResourcesContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 37
 
 [node name="EnergyProgressBar" type="ProgressBar" parent="ResourcesContainer/ProgressBars"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(320, 40)
+custom_minimum_size = Vector2(450, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
+theme_override_styles/background = ExtResource("2_dajm1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2fwl4")
 step = 1.0
 rounded = true
@@ -103,6 +101,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
+theme_override_styles/background = ExtResource("2_dajm1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_dajm1")
 step = 1.0
 rounded = true
@@ -113,6 +112,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
+theme_override_styles/background = ExtResource("2_dajm1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_e6gg6")
 step = 1.0
 rounded = true
@@ -123,6 +123,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
+theme_override_styles/background = ExtResource("2_dajm1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_hat8c")
 step = 1.0
 rounded = true
@@ -133,6 +134,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
+theme_override_styles/background = ExtResource("2_dajm1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_3sbvi")
 step = 1.0
 rounded = true
@@ -170,7 +172,7 @@ offset_right = 232.0
 offset_bottom = 53.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_c7tqi")
+theme_override_styles/panel = ExtResource("3_e6gg6")
 
 [node name="DeviceInfoLabel" type="Label" parent="DeviceInfoPanel"]
 layout_mode = 1
@@ -188,3 +190,68 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "Device Name"
 horizontal_alignment = 1
+
+[node name="TileInfoPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -366.0
+offset_top = -168.0
+offset_right = -27.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("3_e6gg6")
+
+[node name="TileInfoLabel" type="Label" parent="TileInfoPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.0
+offset_top = 10.0
+offset_right = 112.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "Ground Type"
+horizontal_alignment = 1
+
+[node name="TurnLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.5
+offset_top = -88.0
+offset_right = 74.5
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "Day 1"
+
+[node name="Toolbar" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -70.0
+offset_right = 133.0
+offset_bottom = 430.0
+grow_vertical = 2
+
+[node name="AlgaeTank" parent="Toolbar" instance=ExtResource("4_hat8c")]
+layout_mode = 2
+
+[node name="CompostReactor" parent="Toolbar" instance=ExtResource("4_hat8c")]
+layout_mode = 2

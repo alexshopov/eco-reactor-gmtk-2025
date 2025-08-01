@@ -1,6 +1,7 @@
 extends Node
 
 signal active_tile_changed(tile_pos: Vector3)
+signal tile_highlighted(tile_data: MapTile)
 signal device_highlighted(device: Device)
 
 signal tick_completed(turn: int)

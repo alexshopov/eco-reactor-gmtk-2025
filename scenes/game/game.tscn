@@ -1,15 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://b2ila5fjvme4y"]
+[gd_scene load_steps=10 format=3 uid="uid://b2ila5fjvme4y"]
 
 [ext_resource type="Script" uid="uid://dtgr0qiyxgw8r" path="res://scenes/game/game.gd" id="1_sul5r"]
 [ext_resource type="Script" uid="uid://de1mu0qr8x5hd" path="res://managers/game_manager.gd" id="2_0sr1o"]
-[ext_resource type="MeshLibrary" uid="uid://0mkm17pd65jq" path="res://resources/mesh_library.tres" id="2_7h61r"]
 [ext_resource type="Script" uid="uid://checjojnqpv0c" path="res://managers/resources_manager.gd" id="3_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://cij6cpoqs1nhq" path="res://entities/devices/algae_tank/algae_tank.tscn" id="4_5i0tg"]
 [ext_resource type="Script" uid="uid://ciso7s6cisg1h" path="res://managers/device_manager.gd" id="4_87uf6"]
 [ext_resource type="PackedScene" uid="uid://be8rws3a7fcpu" path="res://entities/devices/compost_reactor/compost_reactor.tscn" id="6_2a8rs"]
 [ext_resource type="PackedScene" uid="uid://4g70smrxjuxl" path="res://UI/ui.tscn" id="6_5i0tg"]
-[ext_resource type="PackedScene" uid="uid://cuna4slxjkgf8" path="res://assets/models/cursor.glb" id="6_bdhmt"]
-[ext_resource type="PackedScene" uid="uid://brd13ca3vho3f" path="res://entities/terrain/trees.tscn" id="9_4j704"]
+[ext_resource type="PackedScene" uid="uid://b5fdswfwb1bmo" path="res://scenes/map/grid_map.tscn" id="7_87uf6"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_4j704"]
 top_radius = 0.1
@@ -30,37 +28,12 @@ script = ExtResource("4_87uf6")
 algae_tank_scene = ExtResource("4_5i0tg")
 compost_reactor_scene = ExtResource("6_2a8rs")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="DeviceManager"]
+[node name="GridMap" parent="." instance=ExtResource("7_87uf6")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GridMap"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.05442, 0.122975, -1.06047)
 mesh = SubResource("CylinderMesh_4j704")
-
-[node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("2_7h61r")
-cell_center_y = false
-data = {
-"cells": PackedInt32Array(-2, 65535, 0, -1, 65535, 0, -65536, 65535, 0, -65535, 65535, 0, -65535, 0, 0, -65536, 0, 0, -1, 0, 1, -2, 0, 1, -2, 1, 1, -1, 1, 1, -65536, 1, 0, -65535, 1, 0, -65535, 65534, 0, -65536, 65534, 0, -1, 65534, 0, -2, 65534, 0, -2, 65533, 0, -1, 65533, 0, -65536, 65533, 0, -65535, 65533, 0, -65535, 65532, 0, -65536, 65532, 0, -65536, 65531, 0, -1, 65531, 0, -2, 65531, 0, -2, 65530, 0, -2, 65532, 0, -1, 65532, 0, -1, 65530, 0, -65536, 65530, 0, -65535, 65531, 0, -65535, 65530, 0, -2, 2, 1, -2, 3, 1, -2, 4, 1, -2, 5, 1, -1, 5, 1, -65536, 5, 1, -65535, 5, 1, -65535, 4, 1, -65535, 3, 0, -65535, 2, 0, -65536, 2, 0, -65536, 3, 1, -65536, 4, 1, -1, 2, 1, -1, 3, 1, -1, 4, 1, -3, 65531, 0, -3, 65532, 0, -3, 65533, 0, -3, 65534, 0, -3, 65535, 0, -3, 0, 0, -3, 1, 0, -3, 2, 0, -3, 3, 0, -3, 4, 0, -4, 3, 0, -4, 2, 0, -4, 1, 0, -4, 0, 0, -4, 65535, 0, -4, 65534, 0, -4, 65533, 0, -4, 65532, 0, -5, 2, 0, -5, 1, 0, -5, 0, 0, -5, 65535, 0, -5, 65534, 0, -5, 65533, 0, -6, 1, 0, -6, 0, 0, -6, 65535, 0, -6, 65534, 0, -65534, 4, 0, -65534, 3, 0, -65534, 2, 0, -65534, 1, 0, -65534, 0, 0, -65534, 65535, 0, -65534, 65534, 0, -65534, 65533, 0, -65534, 65532, 0, -65534, 65531, 0, -65533, 65532, 0, -65533, 3, 0, -65533, 2, 0, -65533, 1, 0, -65533, 0, 0, -65533, 65535, 0, -65533, 65534, 0, -65533, 65533, 0, -65532, 2, 0, -65532, 1, 0, -65532, 0, 0, -65532, 65535, 0, -65532, 65534, 0, -65532, 65533, 0, -65531, 65534, 0, -65531, 65535, 0, -65531, 0, 0, -65531, 1, 0)
-}
-metadata/_editor_floor_ = Vector3(0, -1, 0)
-
-[node name="Cursor" parent="GridMap" instance=ExtResource("6_bdhmt")]
-
-[node name="Trees" parent="GridMap" instance=ExtResource("9_4j704")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -9.00799, 0, -1.14036)
-
-[node name="Trees2" parent="GridMap" instance=ExtResource("9_4j704")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9157, 0, -0.949965)
-
-[node name="Trees3" parent="GridMap" instance=ExtResource("9_4j704")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -7.06904, 0, 0.942535)
-
-[node name="Trees4" parent="GridMap" instance=ExtResource("9_4j704")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.83291, 0, 2.94266)
-
-[node name="Trees5" parent="GridMap" instance=ExtResource("9_4j704")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -9.0693, 0, 0.91583)
-
-[node name="Trees6" parent="GridMap" instance=ExtResource("9_4j704")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0675, 0, 1.16743)
+skeleton = NodePath("../../DeviceManager")
 
 [node name="CameraRig" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 11)
@@ -68,10 +41,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 11)
 [node name="Camera3D" type="Camera3D" parent="CameraRig"]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
 projection = 1
-size = 20.0
+size = 23.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.377689, -0.238884, 0.894587, -0.32765, 0.869156, 0.370424, 0, 9.53546, 0)
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.451592, -0.462751, 0.762841, -0.214635, 0.773536, 0.5963, 6.15394, 9.53546, 9.08503)
 shadow_enabled = true
 
 [node name="UI" parent="." instance=ExtResource("6_5i0tg")]

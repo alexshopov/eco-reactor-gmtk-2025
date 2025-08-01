@@ -8,3 +8,8 @@ const O2_INITIAL_VALUE : float = 50
 const CO2_INITIAL_VALUE : float = 40
 const WATER_INITIAL_VALUE : float = 60
 const BIOMASS_INITIAL_VALUE : float = 20
+
+const TILE_DATA : Dictionary = {
+    Enums.TileType.Ground: "Ground",
+    Enums.TileType.Water: "Water",
+}

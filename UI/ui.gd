@@ -5,14 +5,24 @@ extends Control
 func _ready() -> void:
 	%DeviceInfoPanel.visible = false
 
+	EventBus.tile_highlighted.connect(_on_tile_highlighted)
 	EventBus.device_highlighted.connect(_on_device_highlighted)
 
+	EventBus.tick_completed.connect(_on_tick)
 	EventBus.energy_updated.connect(_on_energy_updated)
 	EventBus.o2_updated.connect(_on_o2_updated)
 	EventBus.co2_updated.connect(_on_co2_updated)
 	EventBus.biomass_updated.connect(_on_biomass_updated)
 	EventBus.water_updated.connect(_on_water_updated)
 
+
+
+func _on_tile_highlighted(tile_data: MapTile) -> void:
+	if tile_data:
+		%TileInfoLabel.text = Constants.TILE_DATA[tile_data.tile_type]
+		%TileInfoPanel.visible = true
+	else:
+		%TileInfoPanel.visible = false
 
 
 func _on_device_highlighted(device: Device) -> void:
@@ -23,6 +33,10 @@ func _on_device_highlighted(device: Device) -> void:
 		%DeviceInfoPanel/DeviceInfoLabel.text = device.name
 	else:
 		%DeviceInfoPanel.visible = false
+
+
+func _on_tick(tick: int) -> void:
+	%TurnLabel.text = "Day %d" % tick
 
 
 func _on_energy_updated(value: float) -> void:

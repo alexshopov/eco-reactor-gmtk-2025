@@ -39,4 +39,4 @@ import/blender/enabled=false
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.348675, 0.374512, 0.313301, 1)
+environment/defaults/default_clear_color=Color(0.0289721, 0.0339647, 0.022843, 1)

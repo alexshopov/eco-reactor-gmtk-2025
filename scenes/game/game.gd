@@ -51,9 +51,12 @@ func _get_mouse_xz() -> Vector3:
 func _highlight_tile() -> void:
 	var world_pos := _get_mouse_xz()
 	world_pos.y = -.5
+
 	var cell_index := map.local_to_map(world_pos)
+
 	if (map.get_cell_item(cell_index) != GridMap.INVALID_CELL_ITEM):
 		var grid_pos := map.map_to_local(cell_index)
+		grid_pos.y = 0
 		if active_tile != grid_pos:
 			active_tile = grid_pos
 

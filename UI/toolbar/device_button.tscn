@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuopoh0k6wruj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_234yt"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="DeviceButton" type="PanelContainer"]
+custom_minimum_size = Vector2(100, 100)
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_234yt")
