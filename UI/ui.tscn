@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://4g70smrxjuxl"]
+[gd_scene load_steps=9 format=3 uid="uid://4g70smrxjuxl"]
 
 [ext_resource type="Script" uid="uid://dfb6e8jowabsd" path="res://UI/ui.gd" id="1_2fwl4"]
 
@@ -9,13 +9,30 @@ bg_color = Color(1, 0.862745, 0, 1)
 bg_color = Color(0.274651, 0.372911, 0.979631, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6gg6"]
-bg_color = Color(0.561349, 0.0156394, 0.561371, 1)
+bg_color = Color(0.975006, 0.0252268, 0.189674, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hat8c"]
 bg_color = Color(0.413348, 0.667503, 0.983268, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sbvi"]
 bg_color = Color(0.221323, 0.501373, 0.229787, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm1m0"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7tqi"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.288518, 0.288518, 0.288518, 1)
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -35,6 +52,7 @@ offset_bottom = 528.0
 
 [node name="Labels" type="VBoxContainer" parent="ResourcesContainer"]
 layout_mode = 2
+theme_override_constants/separation = 11
 
 [node name="EnergyLabel" type="Label" parent="ResourcesContainer/Labels"]
 layout_mode = 2
@@ -68,6 +86,7 @@ horizontal_alignment = 2
 
 [node name="ProgressBars" type="VBoxContainer" parent="ResourcesContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="EnergyProgressBar" type="ProgressBar" parent="ResourcesContainer/ProgressBars"]
 unique_name_in_owner = true
@@ -118,3 +137,54 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_3sbvi")
 step = 1.0
 rounded = true
 show_percentage = false
+
+[node name="Console" type="TextEdit" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -143.0
+offset_right = 400.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_nm1m0")
+
+[node name="DeviceInfoPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -46.5
+offset_right = 232.0
+offset_bottom = 53.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c7tqi")
+
+[node name="DeviceInfoLabel" type="Label" parent="DeviceInfoPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Device Name"
+horizontal_alignment = 1

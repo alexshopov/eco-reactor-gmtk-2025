@@ -4,3 +4,6 @@
 
 .vscode/
 blender/
+.DS_Store
+build/
+build.zip

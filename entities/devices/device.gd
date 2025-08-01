@@ -30,6 +30,6 @@ func _ready() -> void:
     EventBus.tick_completed.connect(_on_tick)
 
 
-func _on_tick() -> void:
+func _on_tick(_turn: int) -> void:
     pass
 

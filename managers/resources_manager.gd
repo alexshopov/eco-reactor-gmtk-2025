@@ -30,7 +30,7 @@ func _ready() -> void:
 	EventBus.tick_completed.connect(_on_tick)
 
 
-func _on_tick() -> void:
+func _on_tick(_turn: int) -> void:
 	o2 -= 1
 	co2 += 1
 	water -= 0.2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cij6cpoqs1nhq"]
+[gd_scene load_steps=7 format=3 uid="uid://cij6cpoqs1nhq"]
 
 [ext_resource type="Script" uid="uid://opc43mm6tvgg" path="res://entities/devices/algae_tank/algae_tank.gd" id="1_1dii4"]
 
@@ -13,6 +13,25 @@ height = 1.0
 radial_segments = 36
 rings = 1
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1dii4"]
+emission_shape_scale = Vector3(0, 1, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = 44.3
+angle_max = 177.2
+inherit_velocity_ratio = 2.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgjy4"]
+albedo_color = Color(0.0104096, 0.722538, 4.04298e-06, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7fv10"]
+material = SubResource("StandardMaterial3D_fgjy4")
+size = Vector2(0.25, 0.25)
+orientation = 2
+
 [node name="AlgaeTank" type="Node3D"]
 script = ExtResource("1_1dii4")
 energy_input = 2.0
@@ -24,3 +43,8 @@ biomass_output = 1.0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("CylinderMesh_4301e")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03348, 0)
+process_material = SubResource("ParticleProcessMaterial_1dii4")
+draw_pass_1 = SubResource("PlaneMesh_7fv10")

@@ -36,3 +36,7 @@ window/stretch/mode="canvas_items"
 [filesystem]
 
 import/blender/enabled=false
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.348675, 0.374512, 0.313301, 1)

@@ -1,6 +1,9 @@
 extends Node
 
-signal tick_completed
+signal active_tile_changed(tile_pos: Vector3)
+signal device_highlighted(device: Device)
+
+signal tick_completed(turn: int)
 
 signal energy_updated(value: float)
 signal o2_updated(value: float)
