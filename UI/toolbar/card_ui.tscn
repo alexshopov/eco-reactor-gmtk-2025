@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cuopoh0k6wruj"]
+[gd_scene load_steps=3 format=3 uid="uid://cuopoh0k6wruj"]
+
+[ext_resource type="Script" uid="uid://6bjy5ei37pn" path="res://UI/toolbar/card_ui.gd" id="1_t63d0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_234yt"]
 border_width_left = 5
@@ -10,7 +12,11 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[node name="DeviceButton" type="PanelContainer"]
+[node name="CardUI" type="PanelContainer"]
 custom_minimum_size = Vector2(100, 100)
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_234yt")
+script = ExtResource("1_t63d0")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

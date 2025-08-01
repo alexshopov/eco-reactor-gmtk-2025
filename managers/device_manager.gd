@@ -7,30 +7,56 @@ var algae_tank_scene : PackedScene
 @export
 var compost_reactor_scene : PackedScene
 
-
-var devices : Dictionary = {}
+var active_tile : Vector3
+var device_scenes : Dictionary = {}
+var temp_device : Device
+var active_devices : Dictionary = {}
 
 
 func _ready() -> void:
-	var algae_tank := algae_tank_scene.instantiate()
-	devices.set(Vector3(-1, 0, -1), algae_tank)
-	add_child(algae_tank)
-	algae_tank.global_position = Vector3(-1, 0, -1)
+	device_scenes = {
+		Enums.DeviceType.AlgaeTank: algae_tank_scene,
+		Enums.DeviceType.CompostReactor: compost_reactor_scene,
+	}
 
-	var compost_reactor := compost_reactor_scene.instantiate()
-	devices.set(Vector3(3, 0, -1), compost_reactor)
-	add_child(compost_reactor)
-	compost_reactor.global_position = Vector3(3, 0, -1)
-
+	EventBus.device_card_clicked.connect(_on_device_card_clicked)
+	EventBus.device_card_cancelled.connect(_on_device_card_cancelled)
 	EventBus.active_tile_changed.connect(_on_active_tile_changed)
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("left_click"):
+		if temp_device:
+			var device = temp_device.duplicate()
+			active_devices.set(active_tile, device)
+			temp_device.queue_free()
+			add_child(device)
+
+
 func update_devices() -> void:
-	for device in devices:
+	for device in active_devices:
 		print(device)
 
 
+func _on_device_card_cancelled() -> void:
+	if temp_device:
+		temp_device.queue_free()
+
+
+func _on_device_card_clicked(device_type: Enums.DeviceType) -> void:
+	temp_device = device_scenes[device_type].instantiate() as Device
+	add_child(temp_device)
+
+
 func _on_active_tile_changed(tile_pos: Vector3) -> void:
+	active_tile = tile_pos
+	if active_tile == Vector3.INF:
+		return
+
 	tile_pos.y = 0
-	var device := devices.get(tile_pos) as Device
+	if temp_device:
+		temp_device.global_position = active_tile
+
+	var device := active_devices.get(active_tile) as Device
 	EventBus.device_highlighted.emit(device)
+

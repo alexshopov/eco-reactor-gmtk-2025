@@ -2,6 +2,9 @@ extends Node
 
 signal active_tile_changed(tile_pos: Vector3)
 signal tile_highlighted(tile_data: MapTile)
+
+signal device_card_clicked(device_type: Enums.DeviceType)
+signal device_card_cancelled
 signal device_highlighted(device: Device)
 
 signal tick_completed(turn: int)

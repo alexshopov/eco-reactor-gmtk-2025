@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2ila5fjvme4y"]
+[gd_scene load_steps=9 format=3 uid="uid://b2ila5fjvme4y"]
 
 [ext_resource type="Script" uid="uid://dtgr0qiyxgw8r" path="res://scenes/game/game.gd" id="1_sul5r"]
 [ext_resource type="Script" uid="uid://de1mu0qr8x5hd" path="res://managers/game_manager.gd" id="2_0sr1o"]
@@ -8,11 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://be8rws3a7fcpu" path="res://entities/devices/compost_reactor/compost_reactor.tscn" id="6_2a8rs"]
 [ext_resource type="PackedScene" uid="uid://4g70smrxjuxl" path="res://UI/ui.tscn" id="6_5i0tg"]
 [ext_resource type="PackedScene" uid="uid://b5fdswfwb1bmo" path="res://scenes/map/grid_map.tscn" id="7_87uf6"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_4j704"]
-top_radius = 0.1
-bottom_radius = 0.1
-height = 4.0
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_sul5r")
@@ -29,11 +24,6 @@ algae_tank_scene = ExtResource("4_5i0tg")
 compost_reactor_scene = ExtResource("6_2a8rs")
 
 [node name="GridMap" parent="." instance=ExtResource("7_87uf6")]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.05442, 0.122975, -1.06047)
-mesh = SubResource("CylinderMesh_4j704")
-skeleton = NodePath("../../DeviceManager")
 
 [node name="CameraRig" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 11)

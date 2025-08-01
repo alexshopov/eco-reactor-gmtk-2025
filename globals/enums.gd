@@ -14,5 +14,6 @@ enum TerrainType {
 
 enum DeviceType {
     Null = -1,
-    AlgaeTank
+    AlgaeTank,
+    CompostReactor
 }

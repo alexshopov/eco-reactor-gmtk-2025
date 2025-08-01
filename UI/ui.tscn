@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dfb6e8jowabsd" path="res://UI/ui.gd" id="1_2fwl4"]
 [ext_resource type="StyleBox" uid="uid://5dh5qlqklgt7" path="res://resources/progress_bar_backgroundi.tres" id="2_dajm1"]
 [ext_resource type="StyleBox" uid="uid://dnp1r6bcw232f" path="res://resources/info_panel.tres" id="3_e6gg6"]
-[ext_resource type="PackedScene" uid="uid://cuopoh0k6wruj" path="res://UI/toolbar/device_button.tscn" id="4_hat8c"]
+[ext_resource type="PackedScene" uid="uid://cuopoh0k6wruj" path="res://UI/toolbar/card_ui.tscn" id="4_hat8c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fwl4"]
 bg_color = Color(1, 0.862745, 0, 1)
@@ -255,3 +255,4 @@ layout_mode = 2
 
 [node name="CompostReactor" parent="Toolbar" instance=ExtResource("4_hat8c")]
 layout_mode = 2
+device_type = 1
