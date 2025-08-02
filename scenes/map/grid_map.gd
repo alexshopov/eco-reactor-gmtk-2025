@@ -13,7 +13,6 @@ func _ready() -> void:
         tile_data.tile_type = tile as Enums.TileType
         tiles.set(cell, tile_data)
 
-
     EventBus.active_tile_changed.connect(_on_active_tile_changed)
 
 

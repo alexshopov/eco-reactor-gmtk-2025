@@ -4,9 +4,11 @@ extends Control
 
 func _ready() -> void:
 	%DeviceInfoPanel.visible = false
+	%TileInfoPanel.visible = false
 
 	EventBus.tile_highlighted.connect(_on_tile_highlighted)
-	EventBus.device_highlighted.connect(_on_device_highlighted)
+	# EventBus.device_highlighted.connect(_on_device_highlighted)
+	EventBus.device_card_hovered.connect(_on_device_card_hovered)
 
 	EventBus.tick_completed.connect(_on_tick)
 	EventBus.energy_updated.connect(_on_energy_updated)
@@ -16,6 +18,27 @@ func _ready() -> void:
 	EventBus.water_updated.connect(_on_water_updated)
 
 
+
+func _on_device_card_hovered(device_type: Enums.DeviceType) -> void:
+	if device_type != Enums.DeviceType.Null:
+		%DeviceInfoPanel/DeviceInfoLabel.text = Constants.DEVICES[device_type].name
+		%DeviceInfoPanel/DeviceCost/DeviceCostLabel.text = "%d" % Constants.DEVICES[device_type].cost
+
+		var inputs : Array = Constants.DEVICES[device_type].inputs 
+		var outputs : Array = Constants.DEVICES[device_type].outputs
+		var input_label := ""
+		var output_label := ""
+		for idx in Constants.RESOURCES.size():
+			if inputs[idx][Constants.RESOURCES[idx]] != 0:
+				input_label += "%d %s\n" % [inputs[idx][Constants.RESOURCES[idx]], Constants.RESOURCES[idx]]
+			if outputs[idx][Constants.RESOURCES[idx]] != 0:
+				output_label += "%d %s\n" % [outputs[idx][Constants.RESOURCES[idx]], Constants.RESOURCES[idx]]
+
+		%DeviceInfoPanel/InputLabel.text = input_label
+		%DeviceInfoPanel/OutputLabel.text = output_label
+		%DeviceInfoPanel.visible = true
+	else:
+		%DeviceInfoPanel.visible = false
 
 func _on_tile_highlighted(tile_data: MapTile) -> void:
 	if tile_data:

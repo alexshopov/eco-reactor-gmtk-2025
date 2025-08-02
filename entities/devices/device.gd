@@ -1,6 +1,9 @@
 class_name Device
 extends Node
 
+@export
+var device_type : Enums.DeviceType
+
 @export_group("Inputs")
 @export
 var energy_input: float 
@@ -26,10 +29,19 @@ var water_output : float
 var biomass_output : float
 
 
-func _ready() -> void:
-    EventBus.tick_completed.connect(_on_tick)
+func process_turn() -> void:
+    print("Processing %s" % Constants.DEVICES[device_type].name)
+    if ResourcesManager.energy > energy_input and ResourcesManager.water > water_input \
+        and ResourcesManager.o2 > o2_input and ResourcesManager.co2 > co2_input and ResourcesManager.biomass > biomass_input:
+        ResourcesManager.energy -= energy_input
+        ResourcesManager.water -= water_input
+        ResourcesManager.o2 -= o2_input
+        ResourcesManager.co2 -= co2_input
+        ResourcesManager.biomass -= biomass_input
 
-
-func _on_tick(_turn: int) -> void:
-    pass
+        ResourcesManager.energy += energy_output
+        ResourcesManager.water += water_output
+        ResourcesManager.o2 += o2_output
+        ResourcesManager.co2 += co2_output
+        ResourcesManager.biomass += biomass_output
 

@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2ila5fjvme4y"]
+[gd_scene load_steps=10 format=3 uid="uid://b2ila5fjvme4y"]
 
 [ext_resource type="Script" uid="uid://dtgr0qiyxgw8r" path="res://scenes/game/game.gd" id="1_sul5r"]
 [ext_resource type="Script" uid="uid://de1mu0qr8x5hd" path="res://managers/game_manager.gd" id="2_0sr1o"]
-[ext_resource type="Script" uid="uid://checjojnqpv0c" path="res://managers/resources_manager.gd" id="3_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://cij6cpoqs1nhq" path="res://entities/devices/algae_tank/algae_tank.tscn" id="4_5i0tg"]
 [ext_resource type="Script" uid="uid://ciso7s6cisg1h" path="res://managers/device_manager.gd" id="4_87uf6"]
 [ext_resource type="PackedScene" uid="uid://be8rws3a7fcpu" path="res://entities/devices/compost_reactor/compost_reactor.tscn" id="6_2a8rs"]
 [ext_resource type="PackedScene" uid="uid://4g70smrxjuxl" path="res://UI/ui.tscn" id="6_5i0tg"]
+[ext_resource type="PackedScene" uid="uid://cp78j8ejp01aj" path="res://entities/devices/water_purifier/water_purifier.tscn" id="6_87uf6"]
+[ext_resource type="PackedScene" uid="uid://cydnt8knxfe4r" path="res://entities/devices/solar_panel/solar_panel.tscn" id="7_2a8rs"]
 [ext_resource type="PackedScene" uid="uid://b5fdswfwb1bmo" path="res://scenes/map/grid_map.tscn" id="7_87uf6"]
 
 [node name="Game" type="Node3D"]
@@ -15,23 +16,22 @@ script = ExtResource("1_sul5r")
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("2_0sr1o")
 
-[node name="ResourcesManager" type="Node" parent="."]
-script = ExtResource("3_lfrn8")
-
 [node name="DeviceManager" type="Node" parent="."]
 script = ExtResource("4_87uf6")
 algae_tank_scene = ExtResource("4_5i0tg")
 compost_reactor_scene = ExtResource("6_2a8rs")
+water_purifier_scene = ExtResource("6_87uf6")
+solar_panel_scene = ExtResource("7_2a8rs")
 
 [node name="GridMap" parent="." instance=ExtResource("7_87uf6")]
 
 [node name="CameraRig" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 14, 10)
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig"]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
 projection = 1
-size = 23.0
+size = 21.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.451592, -0.462751, 0.762841, -0.214635, 0.773536, 0.5963, 6.15394, 9.53546, 9.08503)

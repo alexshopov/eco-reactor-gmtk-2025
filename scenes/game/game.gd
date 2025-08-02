@@ -13,8 +13,6 @@ var active_tile : Vector3 :
 @onready
 var game_manager : GameManager = $GameManager
 @onready
-var resources_manager : ResourcesManager = $ResourcesManager
-@onready
 var device_manager : DeviceManager = $DeviceManager
 @onready
 var map : GridMap = $GridMap

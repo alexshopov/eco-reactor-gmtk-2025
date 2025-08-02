@@ -1,31 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://be8rws3a7fcpu"]
+[gd_scene load_steps=3 format=3 uid="uid://be8rws3a7fcpu"]
 
 [ext_resource type="Script" uid="uid://dkqfkjr6bcyqu" path="res://entities/devices/compost_reactor/compost_reactor.gd" id="1_8fw8e"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_8fw8e"]
-top_radius = 0.25
-bottom_radius = 0.25
-height = 1.5
-radial_segments = 24
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8fw8e"]
-albedo_color = Color(0.378129, 0.511971, 0.910618, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ler28"]
-albedo_color = Color(0.376471, 0.513726, 0.909804, 1)
+[ext_resource type="PackedScene" uid="uid://cb1suwasfemhw" path="res://assets/models/CompostReactor.glb" id="2_ler28"]
 
 [node name="CompostReactor" type="Node3D"]
 script = ExtResource("1_8fw8e")
+device_type = 1
 energy_input = 1.0
 biomass_input = 1.0
 co2_output = 1.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.264282, 0.75, 0)
-mesh = SubResource("CylinderMesh_8fw8e")
-surface_material_override/0 = SubResource("StandardMaterial3D_8fw8e")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38269, 0.75, 0)
-mesh = SubResource("CylinderMesh_8fw8e")
-surface_material_override/0 = SubResource("StandardMaterial3D_ler28")
+[node name="CompostReactor" parent="." instance=ExtResource("2_ler28")]

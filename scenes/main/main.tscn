@@ -1,7 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://t24sqduoweg3"]
+[gd_scene load_steps=4 format=3 uid="uid://t24sqduoweg3"]
 
 [ext_resource type="PackedScene" uid="uid://b2ila5fjvme4y" path="res://scenes/game/game.tscn" id="1_hyk8p"]
+[ext_resource type="Script" uid="uid://yhp6ayyrvcdu" path="res://scenes/main/main.gd" id="1_k2fmo"]
+[ext_resource type="AudioStream" uid="uid://dqx1ccik8el20" path="res://assets/music/background_music.ogg" id="2_iuonh"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_k2fmo")
 
 [node name="Game" parent="." instance=ExtResource("1_hyk8p")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_iuonh")
+autoplay = true
+parameters/looping = true

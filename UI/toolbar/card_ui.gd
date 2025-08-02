@@ -3,6 +3,12 @@ extends PanelContainer
 
 @export
 var device_type : Enums.DeviceType
+@export
+var icon : CompressedTexture2D
+
+
+func _ready() -> void:
+    $Icon.texture = icon
 
 
 func _input(event: InputEvent) -> void:
@@ -16,8 +22,8 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func _on_mouse_entered() -> void:
-    pass
+    EventBus.device_card_hovered.emit(device_type)
 
 
 func _on_mouse_exited() -> void:
-    pass
+    EventBus.device_card_hovered.emit(Enums.DeviceType.Null)

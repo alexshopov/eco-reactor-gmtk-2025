@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4ar215ukf6e3"]
+
+[ext_resource type="Script" uid="uid://dvivae07ywq6r" path="res://scenes/terrain/terrain.gd" id="1_5ibnn"]
+[ext_resource type="PackedScene" uid="uid://brd13ca3vho3f" path="res://entities/terrain/forest.tscn" id="1_hn2sr"]
+
+[node name="Terrain" type="Node"]
+script = ExtResource("1_5ibnn")
+
+[node name="Trees" parent="." instance=ExtResource("1_hn2sr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -1)
+
+[node name="Trees2" parent="." instance=ExtResource("1_hn2sr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -1)
+
+[node name="Trees3" parent="." instance=ExtResource("1_hn2sr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 1)
+
+[node name="Trees4" parent="." instance=ExtResource("1_hn2sr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 3)
+
+[node name="Trees5" parent="." instance=ExtResource("1_hn2sr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 1)
+
+[node name="Trees6" parent="." instance=ExtResource("1_hn2sr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 1)

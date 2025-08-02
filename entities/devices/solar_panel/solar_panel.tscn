@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cydnt8knxfe4r"]
+
+[ext_resource type="Script" uid="uid://bkpqgxlg2awv7" path="res://entities/devices/solar_panel/solar_panel.gd" id="1_abqvy"]
+[ext_resource type="PackedScene" uid="uid://bidh6nk6ury5k" path="res://assets/models/SolarPanel.glb" id="2_1nofh"]
+
+[node name="SolarPanel" type="Node3D"]
+script = ExtResource("1_abqvy")
+device_type = 3
+energy_output = 1.0
+
+[node name="SolarPanel" parent="." instance=ExtResource("2_1nofh")]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp78j8ejp01aj"]
+
+[ext_resource type="Script" uid="uid://xv8kuica5ljx" path="res://entities/devices/water_purifier/water_purifier.gd" id="1_uraot"]
+[ext_resource type="PackedScene" uid="uid://b0ohj5ptqrd2l" path="res://assets/models/WaterPurifier.glb" id="2_oodur"]
+
+[node name="WaterPurifier" type="Node3D"]
+script = ExtResource("1_uraot")
+device_type = 2
+
+[node name="WaterPurifier" parent="." instance=ExtResource("2_oodur")]

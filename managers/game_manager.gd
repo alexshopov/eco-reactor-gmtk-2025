@@ -16,6 +16,7 @@ func _update_tick_(delta: float) -> void:
     if tick_timer >= tick_length:
         tick_timer = 0
         turn_counter += 1
+        ResourcesManager.next_turn()
         EventBus.tick_completed.emit(turn_counter)
 
     else:

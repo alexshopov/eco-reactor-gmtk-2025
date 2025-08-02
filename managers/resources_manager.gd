@@ -26,12 +26,14 @@ var water : float :
 		EventBus.water_updated.emit(water)
 
 
-func _ready() -> void:
-	EventBus.tick_completed.connect(_on_tick)
-
-
-func _on_tick(_turn: int) -> void:
+func next_turn() -> void:
+	# standard decay
 	o2 -= 1
 	co2 += 1
 	water -= 0.2
 	biomass -= 0.5
+
+	print(o2)
+	print(co2)
+	print(water)
+	print(biomass)

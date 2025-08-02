@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://brd13ca3vho3f"]
+[gd_scene load_steps=9 format=3 uid="uid://brd13ca3vho3f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hlsp"]
 albedo_color = Color(7.94157e-07, 0.421979, 0.0292988, 1)
@@ -35,6 +35,13 @@ height = 1.5
 radial_segments = 12
 rings = 1
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1s2m"]
+albedo_color = Color(0.0335669, 0.23782, 0.0208081, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_57bnr"]
+material = SubResource("StandardMaterial3D_v1s2m")
+size = Vector2(1.8, 1.8)
+
 [node name="Trees" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -48,3 +55,6 @@ mesh = SubResource("CylinderMesh_2vjlx")
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.352295, 0.75, 0.113403)
 mesh = SubResource("CylinderMesh_q22qs")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_57bnr")

@@ -1,9 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://4g70smrxjuxl"]
+[gd_scene load_steps=16 format=3 uid="uid://4g70smrxjuxl"]
 
 [ext_resource type="Script" uid="uid://dfb6e8jowabsd" path="res://UI/ui.gd" id="1_2fwl4"]
+[ext_resource type="PackedScene" uid="uid://be2farbhpdj0c" path="res://UI/device_info_panel.tscn" id="2_c7tqi"]
 [ext_resource type="StyleBox" uid="uid://5dh5qlqklgt7" path="res://resources/progress_bar_backgroundi.tres" id="2_dajm1"]
 [ext_resource type="StyleBox" uid="uid://dnp1r6bcw232f" path="res://resources/info_panel.tres" id="3_e6gg6"]
 [ext_resource type="PackedScene" uid="uid://cuopoh0k6wruj" path="res://UI/toolbar/card_ui.tscn" id="4_hat8c"]
+[ext_resource type="Texture2D" uid="uid://2vfa5phy75rj" path="res://assets/icons/algae_tank.png" id="5_3sbvi"]
+[ext_resource type="Texture2D" uid="uid://1xcnioumgjw4" path="res://assets/icons/compost_reactor.png" id="6_nm1m0"]
+[ext_resource type="Texture2D" uid="uid://dwp2xi30uh668" path="res://assets/icons/water_purifier.png" id="7_cbfhl"]
+[ext_resource type="Texture2D" uid="uid://c7uny3bc44j8f" path="res://assets/icons/solar_panel.png" id="8_4fiuh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm1m0"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fwl4"]
 bg_color = Color(1, 0.862745, 0, 1)
@@ -20,16 +35,6 @@ bg_color = Color(0.413348, 0.667503, 0.983268, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sbvi"]
 bg_color = Color(0.221323, 0.501373, 0.229787, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm1m0"]
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
 [node name="UI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -38,107 +43,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2fwl4")
-
-[node name="ResourcesContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 30.0
-offset_right = 605.0
-offset_bottom = 538.0
-theme_override_constants/separation = 5
-
-[node name="Labels" type="VBoxContainer" parent="ResourcesContainer"]
-layout_mode = 2
-theme_override_constants/separation = 37
-
-[node name="EnergyLabel" type="Label" parent="ResourcesContainer/Labels"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Energy:"
-horizontal_alignment = 2
-
-[node name="O2Label" type="Label" parent="ResourcesContainer/Labels"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "O2:"
-horizontal_alignment = 2
-
-[node name="CO2Label" type="Label" parent="ResourcesContainer/Labels"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "CO2:"
-horizontal_alignment = 2
-
-[node name="WaterLabel" type="Label" parent="ResourcesContainer/Labels"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Water:"
-horizontal_alignment = 2
-
-[node name="BiomassLabel" type="Label" parent="ResourcesContainer/Labels"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Biomass:"
-horizontal_alignment = 2
-
-[node name="ProgressBars" type="VBoxContainer" parent="ResourcesContainer"]
-layout_mode = 2
-theme_override_constants/separation = 37
-
-[node name="EnergyProgressBar" type="ProgressBar" parent="ResourcesContainer/ProgressBars"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(450, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-theme_override_styles/background = ExtResource("2_dajm1")
-theme_override_styles/fill = SubResource("StyleBoxFlat_2fwl4")
-step = 1.0
-rounded = true
-show_percentage = false
-
-[node name="O2ProgressBar" type="ProgressBar" parent="ResourcesContainer/ProgressBars"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-theme_override_styles/background = ExtResource("2_dajm1")
-theme_override_styles/fill = SubResource("StyleBoxFlat_dajm1")
-step = 1.0
-rounded = true
-show_percentage = false
-
-[node name="CO2ProgressBar" type="ProgressBar" parent="ResourcesContainer/ProgressBars"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-theme_override_styles/background = ExtResource("2_dajm1")
-theme_override_styles/fill = SubResource("StyleBoxFlat_e6gg6")
-step = 1.0
-rounded = true
-show_percentage = false
-
-[node name="WaterProgressBar" type="ProgressBar" parent="ResourcesContainer/ProgressBars"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-theme_override_styles/background = ExtResource("2_dajm1")
-theme_override_styles/fill = SubResource("StyleBoxFlat_hat8c")
-step = 1.0
-rounded = true
-show_percentage = false
-
-[node name="BiomassProgressBar" type="ProgressBar" parent="ResourcesContainer/ProgressBars"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-theme_override_styles/background = ExtResource("2_dajm1")
-theme_override_styles/fill = SubResource("StyleBoxFlat_3sbvi")
-step = 1.0
-rounded = true
-show_percentage = false
 
 [node name="Console" type="TextEdit" parent="."]
 unique_name_in_owner = true
@@ -158,38 +62,12 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_nm1m0")
 
-[node name="DeviceInfoPanel" type="Panel" parent="."]
+[node name="DeviceInfoPanel" parent="." instance=ExtResource("2_c7tqi")]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -168.0
-offset_top = -46.5
-offset_right = 232.0
-offset_bottom = 53.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("3_e6gg6")
-
-[node name="DeviceInfoLabel" type="Label" parent="DeviceInfoPanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "Device Name"
-horizontal_alignment = 1
+offset_left = -1761.0
+offset_right = -1311.0
+offset_bottom = 221.0
 
 [node name="TileInfoPanel" type="Panel" parent="."]
 unique_name_in_owner = true
@@ -199,10 +77,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -366.0
+offset_left = -530.0
 offset_top = -168.0
-offset_right = -27.0
-offset_bottom = -25.0
+offset_right = -30.0
+offset_bottom = -28.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = ExtResource("3_e6gg6")
@@ -222,37 +100,190 @@ theme_override_font_sizes/font_size = 36
 text = "Ground Type"
 horizontal_alignment = 1
 
-[node name="TurnLabel" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -74.5
-offset_top = -88.0
-offset_right = 74.5
-offset_bottom = -21.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 48
-text = "Day 1"
-
 [node name="Toolbar" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 33.0
-offset_top = -70.0
-offset_right = 133.0
-offset_bottom = 430.0
+offset_left = -1888.0
+offset_top = -362.0
+offset_right = -1788.0
+offset_bottom = 362.0
+grow_horizontal = 0
 grow_vertical = 2
 
 [node name="AlgaeTank" parent="Toolbar" instance=ExtResource("4_hat8c")]
 layout_mode = 2
+icon = ExtResource("5_3sbvi")
 
 [node name="CompostReactor" parent="Toolbar" instance=ExtResource("4_hat8c")]
 layout_mode = 2
 device_type = 1
+icon = ExtResource("6_nm1m0")
+
+[node name="WaterPurifier" parent="Toolbar" instance=ExtResource("4_hat8c")]
+layout_mode = 2
+device_type = 2
+icon = ExtResource("7_cbfhl")
+
+[node name="SolarPanel" parent="Toolbar" instance=ExtResource("4_hat8c")]
+layout_mode = 2
+device_type = 3
+icon = ExtResource("8_4fiuh")
+
+[node name="CardUI3" parent="Toolbar" instance=ExtResource("4_hat8c")]
+layout_mode = 2
+device_type = -1
+
+[node name="CardUI4" parent="Toolbar" instance=ExtResource("4_hat8c")]
+layout_mode = 2
+device_type = -1
+
+[node name="CardUI5" parent="Toolbar" instance=ExtResource("4_hat8c")]
+layout_mode = 2
+device_type = -1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -456.0
+offset_bottom = 424.0
+grow_horizontal = 0
+
+[node name="TurnLabel" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 67.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "Day 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HorizontalLine" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 74.0
+offset_right = 100.0
+offset_bottom = 76.0
+grow_horizontal = 2
+
+[node name="ResourcesContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -122.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Labels" type="VBoxContainer" parent="Control/ResourcesContainer"]
+layout_mode = 2
+theme_override_constants/separation = 19
+
+[node name="EnergyLabel" type="Label" parent="Control/ResourcesContainer/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Energy:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="O2Label" type="Label" parent="Control/ResourcesContainer/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "O2:"
+horizontal_alignment = 2
+
+[node name="CO2Label" type="Label" parent="Control/ResourcesContainer/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "CO2:"
+horizontal_alignment = 2
+
+[node name="WaterLabel" type="Label" parent="Control/ResourcesContainer/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Water:"
+horizontal_alignment = 2
+
+[node name="BiomassLabel" type="Label" parent="Control/ResourcesContainer/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Biomass:"
+horizontal_alignment = 2
+
+[node name="ProgressBars" type="VBoxContainer" parent="Control/ResourcesContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="EnergyProgressBar" type="ProgressBar" parent="Control/ResourcesContainer/ProgressBars"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/background = ExtResource("2_dajm1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2fwl4")
+step = 1.0
+value = 100.0
+rounded = true
+show_percentage = false
+
+[node name="O2ProgressBar" type="ProgressBar" parent="Control/ResourcesContainer/ProgressBars"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/background = ExtResource("2_dajm1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dajm1")
+step = 1.0
+value = 50.0
+rounded = true
+show_percentage = false
+
+[node name="CO2ProgressBar" type="ProgressBar" parent="Control/ResourcesContainer/ProgressBars"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/background = ExtResource("2_dajm1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_e6gg6")
+step = 1.0
+value = 60.0
+rounded = true
+show_percentage = false
+
+[node name="WaterProgressBar" type="ProgressBar" parent="Control/ResourcesContainer/ProgressBars"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/background = ExtResource("2_dajm1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hat8c")
+step = 1.0
+value = 70.0
+rounded = true
+show_percentage = false
+
+[node name="BiomassProgressBar" type="ProgressBar" parent="Control/ResourcesContainer/ProgressBars"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/background = ExtResource("2_dajm1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3sbvi")
+step = 1.0
+value = 40.0
+rounded = true
+show_percentage = false
