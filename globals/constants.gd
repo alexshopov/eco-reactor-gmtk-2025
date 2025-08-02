@@ -100,5 +100,41 @@ const DEVICES = {
 			{ "CO2": 0 },
 			{ "Biomass": 0 },
 		]
+	},
+		Enums.DeviceType.BiomassGenerator: {
+		"name": "Biomass Generator",
+		"cost": 15,
+		"inputs": [
+			{ "Energy": 0 },
+			{ "Water": 0 },
+			{ "O2": 0 },
+			{ "CO2": 0 },
+			{ "Biomass": 1 },
+		],
+		"outputs": [
+			{ "Energy": 2 },
+			{ "Water": 0 },
+			{ "O2": 0 },
+			{ "CO2": 0 },
+			{ "Biomass": 0 },
+		]
+	},
+		Enums.DeviceType.NutrientVat: {
+		"name": "Nutrient Vat",
+		"cost": 10,
+		"inputs": [
+			{ "Energy": 1 },
+			{ "Water": 1 },
+			{ "O2": 0 },
+			{ "CO2": 0 },
+			{ "Biomass": 0 },
+		],
+		"outputs": [
+			{ "Energy": 1 },
+			{ "Water": 0 },
+			{ "O2": 0 },
+			{ "CO2": 0 },
+			{ "Biomass": 1 },
+		]
 	}
 }

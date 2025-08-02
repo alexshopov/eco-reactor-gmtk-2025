@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjdc0vjsgfxlp"]
+
+[ext_resource type="PackedScene" uid="uid://bidw6hf2mjapw" path="res://assets/models/BiomassGenerator.glb" id="1_6gejq"]
+[ext_resource type="Script" uid="uid://7t84h6uujkms" path="res://entities/devices/biomass_generator/biomass_generator.gd" id="1_eqfuq"]
+
+[node name="BiomassGenerator" type="Node3D"]
+script = ExtResource("1_eqfuq")
+device_type = 4
+biomass_input = 1.0
+energy_output = 2.0
+
+[node name="Model" parent="." instance=ExtResource("1_6gejq")]

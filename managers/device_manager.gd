@@ -10,12 +10,17 @@ var compost_reactor_scene : PackedScene
 var water_purifier_scene : PackedScene
 @export
 var solar_panel_scene : PackedScene
+@export
+var biomass_generator_scene : PackedScene
 
-var active_tile : Vector3
+var active_tile : Dictionary = {
+	"pos": Vector3.INF,
+	"data": null
+} 
 var device_scenes : Dictionary = {}
+var active_devices : Dictionary = {}
 var temp_cost : int
 var temp_device : Device
-var active_devices : Dictionary = {}
 
 @onready
 var sound_player : AudioStreamPlayer = $DeviceSoundPlayer
@@ -33,6 +38,9 @@ func _ready() -> void:
 		},
 		Enums.DeviceType.SolarPanel: {
 			"scene": solar_panel_scene
+		},
+		Enums.DeviceType.BiomassGenerator: {
+			"scene": biomass_generator_scene
 		}
 	}
 
@@ -44,14 +52,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click"):
-		if temp_device and ResourcesManager.energy > temp_cost:
-			ResourcesManager.energy -= temp_cost
-			var device = temp_device.duplicate()
-			temp_device.queue_free()
-
-			active_devices.set(active_tile, device)
-			add_child(device)
-			sound_player.play()
+		set_device()
 
 
 func _on_tick(_turn: int) -> void:
@@ -72,16 +73,32 @@ func _on_device_card_clicked(device_type: Enums.DeviceType) -> void:
 
 
 func _on_tile_highlighted(tile_pos: Vector3, tile_data: MapTile) -> void:
-	active_tile = tile_pos
-	if active_tile == Vector3.INF:
+	active_tile["pos"] = tile_pos
+	active_tile["data"] = tile_data
+	if active_tile["pos"] == Vector3.INF:
 		return
 
-	if not tile_data:
+	if not active_tile["data"]:
 		return
 
-	active_tile.y = 0
-	if temp_device and temp_device.can_build(tile_data.tile_type):
-		temp_device.global_position = active_tile
+	active_tile["pos"].y = 0
+	if temp_device and temp_device.can_build(active_tile["data"]):
+		temp_device.global_position = active_tile["pos"]
 
-	var device := active_devices.get(active_tile) as Device
-	EventBus.device_highlighted.emit(device)
+	# var device := active_devices.get(active_tile) as Device
+	# EventBus.device_highlighted.emit(device)
+
+
+func set_device() -> void:
+	if temp_device and ResourcesManager.energy > temp_cost:
+		ResourcesManager.energy -= temp_cost
+		var device = temp_device.duplicate()
+		temp_device.queue_free()
+
+		active_tile["data"].device_type = device.device_type
+		active_devices.set(active_tile["pos"], device)
+		add_child(device)
+
+		sound_player.play()
+
+		EventBus.device_placed.emit(active_tile["pos"], active_tile["data"])

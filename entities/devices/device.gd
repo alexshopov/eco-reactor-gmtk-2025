@@ -30,7 +30,6 @@ var biomass_output : float
 
 
 func process_turn() -> void:
-    print("Processing %s" % Constants.DEVICES[device_type].name)
     if ResourcesManager.energy > energy_input and ResourcesManager.water > water_input \
         and ResourcesManager.o2 > o2_input and ResourcesManager.co2 > co2_input and ResourcesManager.biomass > biomass_input:
         ResourcesManager.energy -= energy_input
@@ -46,5 +45,5 @@ func process_turn() -> void:
         ResourcesManager.biomass += biomass_output
 
 
-func can_build(_tile_type: Enums.TileType) -> bool:
-    return false
+func can_build(tile_data: MapTile) -> bool:
+    return tile_data.device_type == Enums.DeviceType.Null and tile_data.tile_type == Enums.TileType.Ground

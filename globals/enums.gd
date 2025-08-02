@@ -11,5 +11,7 @@ enum DeviceType {
     AlgaeTank,
     CompostReactor,
     WaterPurifier,
-    SolarPanel
+    SolarPanel,
+    BiomassGenerator,
+    NutrientVat
 }

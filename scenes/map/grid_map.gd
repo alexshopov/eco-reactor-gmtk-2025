@@ -15,6 +15,7 @@ func _ready() -> void:
 
 		var tile_data = MapTile.new()
 		tile_data.tile_type = tile as Enums.TileType
+		tile_data.device_type = Enums.DeviceType.Null
 
 		if tile_data.tile_type == Enums.TileType.Water:
 			$Terrain.spawn_water()
@@ -28,6 +29,7 @@ func _ready() -> void:
 
 
 	EventBus.active_tile_changed.connect(_on_active_tile_changed)
+	EventBus.device_placed.connect(_on_device_placed)
 
 
 func _on_active_tile_changed(active_tile: Vector3) -> void:
@@ -35,3 +37,9 @@ func _on_active_tile_changed(active_tile: Vector3) -> void:
 	if active_tile:
 		var cell := local_to_map(active_tile)
 		EventBus.tile_highlighted.emit(active_tile, tiles.get(cell))
+
+
+func _on_device_placed(pos: Vector3, tile_data: MapTile) -> void:
+	var cell := pos
+	cell.y = -1
+	tiles[local_to_map(cell)] = tile_data

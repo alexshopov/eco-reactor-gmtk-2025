@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://4g70smrxjuxl"]
+[gd_scene load_steps=17 format=3 uid="uid://4g70smrxjuxl"]
 
 [ext_resource type="Script" uid="uid://dfb6e8jowabsd" path="res://UI/ui.gd" id="1_2fwl4"]
 [ext_resource type="PackedScene" uid="uid://be2farbhpdj0c" path="res://UI/device_info_panel.tscn" id="2_c7tqi"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://1xcnioumgjw4" path="res://assets/icons/compost_reactor.png" id="6_nm1m0"]
 [ext_resource type="Texture2D" uid="uid://dwp2xi30uh668" path="res://assets/icons/water_purifier.png" id="7_cbfhl"]
 [ext_resource type="Texture2D" uid="uid://c7uny3bc44j8f" path="res://assets/icons/solar_panel.png" id="8_4fiuh"]
+[ext_resource type="Texture2D" uid="uid://oeohn074t5mu" path="res://assets/icons/biomass_generator.png" id="9_h81ot"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm1m0"]
 border_width_left = 5
@@ -98,6 +99,11 @@ offset_bottom = 362.0
 grow_horizontal = 0
 grow_vertical = 2
 
+[node name="SolarPanel" parent="Toolbar" instance=ExtResource("4_hat8c")]
+layout_mode = 2
+device_type = 3
+icon = ExtResource("8_4fiuh")
+
 [node name="AlgaeTank" parent="Toolbar" instance=ExtResource("4_hat8c")]
 layout_mode = 2
 icon = ExtResource("5_3sbvi")
@@ -112,20 +118,18 @@ layout_mode = 2
 device_type = 2
 icon = ExtResource("7_cbfhl")
 
-[node name="SolarPanel" parent="Toolbar" instance=ExtResource("4_hat8c")]
+[node name="BiomassGenerator" parent="Toolbar" instance=ExtResource("4_hat8c")]
 layout_mode = 2
-device_type = 3
-icon = ExtResource("8_4fiuh")
-
-[node name="CardUI3" parent="Toolbar" instance=ExtResource("4_hat8c")]
-layout_mode = 2
-device_type = -1
+device_type = 4
+icon = ExtResource("9_h81ot")
 
 [node name="CardUI4" parent="Toolbar" instance=ExtResource("4_hat8c")]
+visible = false
 layout_mode = 2
 device_type = -1
 
 [node name="CardUI5" parent="Toolbar" instance=ExtResource("4_hat8c")]
+visible = false
 layout_mode = 2
 device_type = -1
 
