@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5fdswfwb1bmo"]
+[gd_scene load_steps=8 format=3 uid="uid://b5fdswfwb1bmo"]
 
 [ext_resource type="MeshLibrary" uid="uid://0mkm17pd65jq" path="res://resources/mesh_library.tres" id="1_8mybc"]
 [ext_resource type="Script" uid="uid://deprd02psa5pg" path="res://scenes/map/grid_map.gd" id="2_f3dok"]
 [ext_resource type="PackedScene" uid="uid://cuna4slxjkgf8" path="res://assets/models/cursor.glb" id="2_jnsxj"]
 [ext_resource type="PackedScene" uid="uid://d4ar215ukf6e3" path="res://scenes/terrain/terrain.tscn" id="3_jnsxj"]
+[ext_resource type="PackedScene" uid="uid://brd13ca3vho3f" path="res://entities/terrain/forest.tscn" id="4_f3dok"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jnsxj"]
 albedo_color = Color(0.196078, 0.196078, 0.196078, 1)
@@ -22,6 +23,7 @@ script = ExtResource("2_f3dok")
 metadata/_editor_floor_ = Vector3(0, -1, 0)
 
 [node name="Terrain" parent="." instance=ExtResource("3_jnsxj")]
+tree_scene = ExtResource("4_f3dok")
 
 [node name="Cursor" parent="." instance=ExtResource("2_jnsxj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)

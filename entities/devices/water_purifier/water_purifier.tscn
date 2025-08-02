@@ -6,5 +6,7 @@
 [node name="WaterPurifier" type="Node3D"]
 script = ExtResource("1_uraot")
 device_type = 2
+energy_input = 3.0
+water_output = 2.0
 
 [node name="WaterPurifier" parent="." instance=ExtResource("2_oodur")]

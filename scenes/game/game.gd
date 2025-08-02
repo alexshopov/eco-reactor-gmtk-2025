@@ -58,7 +58,7 @@ func _highlight_tile() -> void:
 		if active_tile != grid_pos:
 			active_tile = grid_pos
 
-		grid_pos.y = 0.1
+		grid_pos.y = 0.05
 		cursor.visible = true
 		cursor.global_position = grid_pos
 	else:

@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://chco3605o6bi"]
+
+[ext_resource type="StyleBox" uid="uid://dnp1r6bcw232f" path="res://resources/info_panel.tres" id="1_q6h5q"]
+
+[node name="TileInfoPanel" type="Panel"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -530.0
+offset_top = -248.0
+offset_right = -30.0
+offset_bottom = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("1_q6h5q")
+
+[node name="TileInfoLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.0
+offset_top = 10.0
+offset_right = 112.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "Tile Type"
+horizontal_alignment = 1
+
+[node name="TileInfoData" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -225.0
+offset_top = -110.0
+offset_right = 225.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit"

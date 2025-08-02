@@ -9,89 +9,96 @@ const CO2_INITIAL_VALUE : float = 40
 const WATER_INITIAL_VALUE : float = 60
 const BIOMASS_INITIAL_VALUE : float = 20
 
-const TILE_DATA : Dictionary = {
-    Enums.TileType.Ground: "Ground",
-    Enums.TileType.Water: "Water",
-}
-
 const TREE_CO2_SINK : float = 0.2
 const WATER_PASSIVE_REGEN : float = 0.1
 
+const TILE_DATA : Dictionary = {
+	Enums.TileType.Ground: "Ground",
+	Enums.TileType.Water: "Water",
+	Enums.TileType.Forest: "Forest",
+}
+
+const TILE_DESCRIPTIONS : Dictionary = {
+	Enums.TileType.Ground: "[center]Dirt[/center]", 
+	Enums.TileType.Water: "Each water tile produces [color=#465ffa][b]%0.1f[/b][/color] units of water per day" % WATER_PASSIVE_REGEN,
+	Enums.TileType.Forest: "Each forest tile absorbs [color=#FF0000][b]%0.1f[/b][/color] units of CO2 per day" % TREE_CO2_SINK,
+}
+
 const RESOURCES = [
-    "Energy", "Water", "O2", "CO2", "Biomass"
+	"Energy", "Water", "O2", "CO2", "Biomass"
 ]
 
 const DEVICES = {
-    Enums.DeviceType.AlgaeTank: {
-        "name": "Algae Tank",
-        "cost": 12,
-        "inputs": [
-            { "Energy": 2 },
-            { "Water": 1 },
-            { "O2": 0 },
-            { "CO2": 1 },
-            { "Biomass": 0 },
-        ],
-        "outputs": [
-            { "Energy": 0 },
-            { "Water": 0 },
-            { "O2": 1 },
-            { "CO2": 0 },
-            { "Biomass": 1 },
-        ]
-    },
-    Enums.DeviceType.CompostReactor: {
-        "name": "Compost Reactor",
-        "cost": 10,
-        "inputs": [
-            { "Energy": 1 },
-            { "Water": 0 },
-            { "O2": 0 },
-            { "CO2": 0 },
-            { "Biomass": 1 },
-        ],
-        "outputs": [
-            { "Energy": 0 },
-            { "Water": 0 },
-            { "O2": 0 },
-            { "CO2": 1 },
-            { "Biomass": 0 },
-        ]
-    },
-    Enums.DeviceType.WaterPurifier: {
-        "name": "Water Purifier",
-        "cost": 20,
-        "inputs": [
-            { "Energy": 3 },
-            { "Water": 0 },
-            { "O2": 0 },
-            { "CO2": 0 },
-            { "Biomass": 0 },
-        ],
-        "outputs": [
-            { "Energy": 0 },
-            { "Water": 2 },
-            { "O2": 0 },
-            { "CO2": 0 },
-            { "Biomass": 0 },
-        ]
-    },
-    Enums.DeviceType.SolarPanel: {
-        "name": "Solar Panel",
-        "cost": 10,
-        "inputs": [
-            { "Energy": 0 },
-            { "Water": 0 },
-            { "O2": 0 },
-            { "CO2": 0 },
-            { "Biomass": 0 },
-        ],
-        "outputs": [
-            { "Energy": 1 },
-            { "Water": 0 },
-            { "O2": 0 },
-            { "CO2": 0 },
-            { "Biomass": 0 },
-        ]
-    }
+	Enums.DeviceType.AlgaeTank: {
+		"name": "Algae Tank",
+		"cost": 12,
+		"inputs": [
+			{ "Energy": 2 },
+			{ "Water": 1 },
+			{ "O2": 0 },
+			{ "CO2": 1 },
+			{ "Biomass": 0 },
+		],
+		"outputs": [
+			{ "Energy": 0 },
+			{ "Water": 0 },
+			{ "O2": 1 },
+			{ "CO2": 0 },
+			{ "Biomass": 1 },
+		]
+	},
+	Enums.DeviceType.CompostReactor: {
+		"name": "Compost Reactor",
+		"cost": 10,
+		"inputs": [
+			{ "Energy": 1 },
+			{ "Water": 0 },
+			{ "O2": 0 },
+			{ "CO2": 0 },
+			{ "Biomass": 1 },
+		],
+		"outputs": [
+			{ "Energy": 0 },
+			{ "Water": 0 },
+			{ "O2": 0 },
+			{ "CO2": 1 },
+			{ "Biomass": 0 },
+		]
+	},
+	Enums.DeviceType.WaterPurifier: {
+		"name": "Water Purifier",
+		"cost": 20,
+		"inputs": [
+			{ "Energy": 3 },
+			{ "Water": 0 },
+			{ "O2": 0 },
+			{ "CO2": 0 },
+			{ "Biomass": 0 },
+		],
+		"outputs": [
+			{ "Energy": 0 },
+			{ "Water": 2 },
+			{ "O2": 0 },
+			{ "CO2": 0 },
+			{ "Biomass": 0 },
+		]
+	},
+	Enums.DeviceType.SolarPanel: {
+		"name": "Solar Panel",
+		"cost": 10,
+		"inputs": [
+			{ "Energy": 0 },
+			{ "Water": 0 },
+			{ "O2": 0 },
+			{ "CO2": 0 },
+			{ "Biomass": 0 },
+		],
+		"outputs": [
+			{ "Energy": 1 },
+			{ "Water": 0 },
+			{ "O2": 0 },
+			{ "CO2": 0 },
+			{ "Biomass": 0 },
+		]
+	}
 }

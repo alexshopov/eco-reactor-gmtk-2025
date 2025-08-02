@@ -40,9 +40,10 @@ func _on_device_card_hovered(device_type: Enums.DeviceType) -> void:
 	else:
 		%DeviceInfoPanel.visible = false
 
-func _on_tile_highlighted(tile_data: MapTile) -> void:
+func _on_tile_highlighted(_pos: Vector3, tile_data: MapTile) -> void:
 	if tile_data:
-		%TileInfoLabel.text = Constants.TILE_DATA[tile_data.tile_type]
+		%TileInfoPanel/TileInfoLabel.text = Constants.TILE_DATA[tile_data.tile_type]
+		%TileInfoPanel/TileInfoData.text = Constants.TILE_DESCRIPTIONS[tile_data.tile_type]
 		%TileInfoPanel.visible = true
 	else:
 		%TileInfoPanel.visible = false

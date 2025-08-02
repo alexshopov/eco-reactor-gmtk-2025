@@ -45,3 +45,6 @@ func process_turn() -> void:
         ResourcesManager.co2 += co2_output
         ResourcesManager.biomass += biomass_output
 
+
+func can_build(_tile_type: Enums.TileType) -> bool:
+    return false

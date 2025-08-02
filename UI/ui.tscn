@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dfb6e8jowabsd" path="res://UI/ui.gd" id="1_2fwl4"]
 [ext_resource type="PackedScene" uid="uid://be2farbhpdj0c" path="res://UI/device_info_panel.tscn" id="2_c7tqi"]
 [ext_resource type="StyleBox" uid="uid://5dh5qlqklgt7" path="res://resources/progress_bar_backgroundi.tres" id="2_dajm1"]
-[ext_resource type="StyleBox" uid="uid://dnp1r6bcw232f" path="res://resources/info_panel.tres" id="3_e6gg6"]
+[ext_resource type="PackedScene" uid="uid://chco3605o6bi" path="res://UI/tile_info_panel.tscn" id="3_4fiuh"]
 [ext_resource type="PackedScene" uid="uid://cuopoh0k6wruj" path="res://UI/toolbar/card_ui.tscn" id="4_hat8c"]
 [ext_resource type="Texture2D" uid="uid://2vfa5phy75rj" path="res://assets/icons/algae_tank.png" id="5_3sbvi"]
 [ext_resource type="Texture2D" uid="uid://1xcnioumgjw4" path="res://assets/icons/compost_reactor.png" id="6_nm1m0"]
@@ -24,13 +24,13 @@ corner_radius_bottom_left = 5
 bg_color = Color(1, 0.862745, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dajm1"]
-bg_color = Color(0.274651, 0.372911, 0.979631, 1)
+bg_color = Color(0.411765, 0.666667, 0.984314, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6gg6"]
 bg_color = Color(0.975006, 0.0252268, 0.189674, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hat8c"]
-bg_color = Color(0.413348, 0.667503, 0.983268, 1)
+bg_color = Color(0.27451, 0.372549, 0.980392, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sbvi"]
 bg_color = Color(0.221323, 0.501373, 0.229787, 1)
@@ -67,38 +67,22 @@ unique_name_in_owner = true
 layout_mode = 1
 offset_left = -1761.0
 offset_right = -1311.0
-offset_bottom = 221.0
+offset_bottom = 232.0
 
-[node name="TileInfoPanel" type="Panel" parent="."]
+[node name="TileInfoPanel" parent="." instance=ExtResource("3_4fiuh")]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -530.0
-offset_top = -168.0
-offset_right = -30.0
-offset_bottom = -28.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_styles/panel = ExtResource("3_e6gg6")
-
-[node name="TileInfoLabel" type="Label" parent="TileInfoPanel"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -112.0
-offset_top = 10.0
-offset_right = 112.0
-offset_bottom = 60.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 36
-text = "Ground Type"
-horizontal_alignment = 1
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1390.0
+offset_top = 864.0
+offset_right = 1890.0
+offset_bottom = 1055.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Toolbar" type="VBoxContainer" parent="."]
 layout_mode = 1

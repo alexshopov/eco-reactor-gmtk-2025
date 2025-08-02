@@ -2,14 +2,8 @@ extends Node
 
 enum TileType {
     Ground = 0,
-    Water
-}
-
-enum TerrainType {
-    Null = -1,
-    Ground,
     Water,
-    Trees
+    Forest
 }
 
 enum DeviceType {
