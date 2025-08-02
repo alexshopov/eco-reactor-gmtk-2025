@@ -4,10 +4,22 @@ const TICK_DURATION_FAST : int = 3
 const TICK_DURATION_NORMAL : int = 6
 
 const ENERGY_INITIAL_VALUE : float = 100
+
 const O2_INITIAL_VALUE : float = 50
+const O2_STABLE_MIN : float = 50
+const O2_STABLE_MAX : float = 100
+
 const CO2_INITIAL_VALUE : float = 40
+const CO2_STABLE_MIN : float = 20
+const CO2_STABLE_MAX : float = 60
+
 const WATER_INITIAL_VALUE : float = 60
+const WATER_STABLE_MIN : float = 30
+const WATER_STABLE_MAX : float = 70
+
 const BIOMASS_INITIAL_VALUE : float = 20
+const BIOMASS_STABLE_MIN : float = 10
+const BIOMASS_STABLE_MAX : float = 40
 
 const TREE_CO2_SINK : float = 0.2
 const WATER_PASSIVE_REGEN : float = 0.1
