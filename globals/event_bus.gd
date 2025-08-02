@@ -13,7 +13,16 @@ signal device_highlighted(device: Device)
 signal tick_completed(turn: int)
 
 signal energy_updated(value: float)
+signal energy_delta_updated(value: float)
+
 signal o2_updated(value: float)
+signal o2_delta_updated(value: float)
+
 signal co2_updated(value: float)
+signal co2_delta_updated(value: float)
+
 signal water_updated(value: float)
+signal water_delta_updated(value: float)
+
 signal biomass_updated(value: float)
+signal biomass_delta_updated(value: float)

@@ -11,11 +11,21 @@ func _ready() -> void:
 	EventBus.device_card_hovered.connect(_on_device_card_hovered)
 
 	EventBus.tick_completed.connect(_on_tick)
+
 	EventBus.energy_updated.connect(_on_energy_updated)
+	EventBus.energy_delta_updated.connect(_on_energy_delta_updated)
+	
 	EventBus.o2_updated.connect(_on_o2_updated)
+	EventBus.o2_delta_updated.connect(_on_o2_delta_updated)
+
 	EventBus.co2_updated.connect(_on_co2_updated)
+	EventBus.co2_delta_updated.connect(_on_co2_delta_updated)
+
 	EventBus.biomass_updated.connect(_on_biomass_updated)
+	EventBus.biomass_delta_updated.connect(_on_biomass_delta_updated)
+
 	EventBus.water_updated.connect(_on_water_updated)
+	EventBus.water_delta_updated.connect(_on_water_delta_updated)
 
 
 func _on_device_card_hovered(device_type: Enums.DeviceType) -> void:
@@ -57,21 +67,36 @@ func _on_tick(tick: int) -> void:
 func _on_energy_updated(value: float) -> void:
 	%EnergyProgressBar.value = _get_value(value)
 
+func _on_energy_delta_updated(value: float) -> void:
+	%EnergyDelta.text = "%0.1f" % value
+
 
 func _on_o2_updated(value: float) -> void:
 	%O2ProgressBar.value = _get_value(value)
+
+func _on_o2_delta_updated(value: float) -> void:
+	%O2Delta.text = "%0.1f" % value
 
 
 func _on_co2_updated(value: float) -> void:
 	%CO2ProgressBar.value = _get_value(value)
 
+func _on_co2_delta_updated(value: float) -> void:
+	%CO2Delta.text = "%0.1f" % value
+
 
 func _on_biomass_updated(value: float) -> void:
 	%BiomassProgressBar.value = _get_value(value)
 
+func _on_biomass_delta_updated(value: float) -> void:
+	%BiomassDelta.text = "%0.1f" % value
+
 
 func _on_water_updated(value: float) -> void:
 	%WaterProgressBar.value = _get_value(value)
+
+func _on_water_delta_updated(value: float) -> void:
+	%WaterDelta.text = "%0.1f" % value
 
 
 func _get_value(value: float) -> float:

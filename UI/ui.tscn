@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://4g70smrxjuxl"]
+[gd_scene load_steps=18 format=3 uid="uid://4g70smrxjuxl"]
 
 [ext_resource type="Script" uid="uid://dfb6e8jowabsd" path="res://UI/ui.gd" id="1_2fwl4"]
 [ext_resource type="PackedScene" uid="uid://be2farbhpdj0c" path="res://UI/device_info_panel.tscn" id="2_c7tqi"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dwp2xi30uh668" path="res://assets/icons/water_purifier.png" id="7_cbfhl"]
 [ext_resource type="Texture2D" uid="uid://c7uny3bc44j8f" path="res://assets/icons/solar_panel.png" id="8_4fiuh"]
 [ext_resource type="Texture2D" uid="uid://oeohn074t5mu" path="res://assets/icons/biomass_generator.png" id="9_h81ot"]
+[ext_resource type="StyleBox" uid="uid://dnp1r6bcw232f" path="res://resources/info_panel.tres" id="11_6rr40"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm1m0"]
 border_width_left = 5
@@ -138,7 +139,7 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -456.0
+offset_left = -518.0
 offset_bottom = 424.0
 grow_horizontal = 0
 
@@ -175,7 +176,7 @@ offset_top = -122.0
 offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 5
+theme_override_constants/separation = 13
 
 [node name="Labels" type="VBoxContainer" parent="Control/ResourcesContainer"]
 layout_mode = 2
@@ -276,12 +277,49 @@ value = 10.0
 rounded = true
 show_percentage = false
 
+[node name="Delta" type="VBoxContainer" parent="Control/ResourcesContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="EnergyDelta" type="Label" parent="Control/ResourcesContainer/Delta"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "0"
+vertical_alignment = 1
+
+[node name="O2Delta" type="Label" parent="Control/ResourcesContainer/Delta"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "0"
+
+[node name="CO2Delta" type="Label" parent="Control/ResourcesContainer/Delta"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "0"
+
+[node name="WaterDelta" type="Label" parent="Control/ResourcesContainer/Delta"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "0"
+
+[node name="BiomassDelta" type="Label" parent="Control/ResourcesContainer/Delta"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "0"
+
 [node name="Control" type="Control" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
 offset_top = 75.0
+offset_right = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -291,7 +329,7 @@ z_index = -1
 layout_mode = 2
 offset_left = 276.0
 offset_top = 66.0
-offset_right = 426.0
+offset_right = 427.0
 offset_bottom = 118.0
 color = Color(0.196078, 0.545098, 0.94902, 1)
 
@@ -321,3 +359,31 @@ offset_top = 243.0
 offset_right = 246.0
 offset_bottom = 295.0
 color = Color(0.219608, 0.501961, 0.231373, 1)
+
+[node name="Log" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -135.0
+offset_right = 734.0
+offset_bottom = -26.0
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("11_6rr40")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Log"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = -10.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_styles/background = ExtResource("11_6rr40")
+text = "Day 1: Info"

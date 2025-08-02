@@ -122,7 +122,6 @@ func open_confirmation_dialog() -> void:
 
 
 func delete_device() -> void:
-	# var device := active_devices.get(active_tile).pos as TileData
 	active_devices.get(active_tile.pos).queue_free()
 	active_devices.erase(active_tile.pos)
 	EventBus.device_destroyed.emit(active_tile.pos)

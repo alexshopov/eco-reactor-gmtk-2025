@@ -13,7 +13,10 @@ func _ready() -> void:
 
 
 func _on_tick(_turn: int) -> void:
+	ResourcesManager.co2_delta -= (num_trees * Constants.TREE_CO2_SINK)
 	ResourcesManager.co2 -= (num_trees * Constants.TREE_CO2_SINK)
+
+	ResourcesManager.water_delta += (num_water * Constants.WATER_PASSIVE_REGEN)
 	ResourcesManager.water += (num_water * Constants.WATER_PASSIVE_REGEN)
 
 

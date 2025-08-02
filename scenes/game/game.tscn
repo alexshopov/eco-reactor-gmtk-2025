@@ -32,7 +32,7 @@ stream = ExtResource("8_4j704")
 [node name="GridMap" parent="." instance=ExtResource("7_87uf6")]
 
 [node name="CameraRig" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 14, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.62, 14.45, 9.66)
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig"]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
