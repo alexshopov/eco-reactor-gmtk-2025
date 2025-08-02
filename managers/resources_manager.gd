@@ -45,6 +45,10 @@ var water_delta: float :
 		water_delta = value
 		EventBus.water_delta_updated.emit(water_delta)
 
+var forest_tiles : int = 0
+var co2_sink : float
+var water_tiles : int = 0
+var water_regen : float
 
 func next_turn() -> void:
 	# standard decay

@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://4g70smrxjuxl"]
+[gd_scene load_steps=27 format=3 uid="uid://4g70smrxjuxl"]
 
 [ext_resource type="Script" uid="uid://dfb6e8jowabsd" path="res://UI/ui.gd" id="1_2fwl4"]
+[ext_resource type="Theme" uid="uid://dfsg4lmmnysja" path="res://resources/confirmation_dialog.tres" id="1_o2jkc"]
 [ext_resource type="PackedScene" uid="uid://be2farbhpdj0c" path="res://UI/device_info_panel.tscn" id="2_c7tqi"]
 [ext_resource type="StyleBox" uid="uid://5dh5qlqklgt7" path="res://resources/progress_bar_backgroundi.tres" id="2_dajm1"]
 [ext_resource type="PackedScene" uid="uid://chco3605o6bi" path="res://UI/tile_info_panel.tscn" id="3_4fiuh"]
@@ -10,7 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://dwp2xi30uh668" path="res://assets/icons/water_purifier.png" id="7_cbfhl"]
 [ext_resource type="Texture2D" uid="uid://c7uny3bc44j8f" path="res://assets/icons/solar_panel.png" id="8_4fiuh"]
 [ext_resource type="Texture2D" uid="uid://oeohn074t5mu" path="res://assets/icons/biomass_generator.png" id="9_h81ot"]
+[ext_resource type="Texture2D" uid="uid://b72qafl2mkewn" path="res://assets/icons/nutrient_vat.png" id="10_0w6e5"]
 [ext_resource type="StyleBox" uid="uid://dnp1r6bcw232f" path="res://resources/info_panel.tres" id="11_6rr40"]
+[ext_resource type="FontFile" uid="uid://db3bl2r4rl2tu" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Bold.ttf" id="12_ow1yt"]
+[ext_resource type="FontFile" uid="uid://c05rnlll14j36" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="13_o2t6a"]
+[ext_resource type="PackedScene" uid="uid://og2bfmenp1mj" path="res://UI/options_panel/options_panel.tscn" id="16_o2t6a"]
+[ext_resource type="Texture2D" uid="uid://vn6yfrx8ulwq" path="res://assets/icons/cog.png" id="17_8gukh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm1m0"]
 border_width_left = 5
@@ -37,6 +43,16 @@ bg_color = Color(0.27451, 0.372549, 0.980392, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sbvi"]
 bg_color = Color(0.221323, 0.501373, 0.229787, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gukh"]
+bg_color = Color(0.254902, 0.254902, 0.254902, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tr35"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gkfd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
 [node name="UI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -44,6 +60,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_o2jkc")
 script = ExtResource("1_2fwl4")
 
 [node name="Console" type="TextEdit" parent="."]
@@ -105,6 +122,16 @@ layout_mode = 2
 device_type = 3
 icon = ExtResource("8_4fiuh")
 
+[node name="BiomassGenerator" parent="Toolbar" instance=ExtResource("4_hat8c")]
+layout_mode = 2
+device_type = 4
+icon = ExtResource("9_h81ot")
+
+[node name="WaterPurifier" parent="Toolbar" instance=ExtResource("4_hat8c")]
+layout_mode = 2
+device_type = 2
+icon = ExtResource("7_cbfhl")
+
 [node name="AlgaeTank" parent="Toolbar" instance=ExtResource("4_hat8c")]
 layout_mode = 2
 icon = ExtResource("5_3sbvi")
@@ -114,20 +141,10 @@ layout_mode = 2
 device_type = 1
 icon = ExtResource("6_nm1m0")
 
-[node name="WaterPurifier" parent="Toolbar" instance=ExtResource("4_hat8c")]
+[node name="NutrientVat" parent="Toolbar" instance=ExtResource("4_hat8c")]
 layout_mode = 2
-device_type = 2
-icon = ExtResource("7_cbfhl")
-
-[node name="BiomassGenerator" parent="Toolbar" instance=ExtResource("4_hat8c")]
-layout_mode = 2
-device_type = 4
-icon = ExtResource("9_h81ot")
-
-[node name="CardUI4" parent="Toolbar" instance=ExtResource("4_hat8c")]
-visible = false
-layout_mode = 2
-device_type = -1
+device_type = 5
+icon = ExtResource("10_0w6e5")
 
 [node name="CardUI5" parent="Toolbar" instance=ExtResource("4_hat8c")]
 visible = false
@@ -139,8 +156,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -518.0
-offset_bottom = 424.0
+offset_left = -534.0
+offset_top = -1.0
+offset_right = -16.0
+offset_bottom = 423.0
 grow_horizontal = 0
 
 [node name="TurnLabel" type="Label" parent="Control"]
@@ -150,6 +169,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 67.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_ow1yt")
 theme_override_font_sizes/font_size = 48
 text = "Day 1"
 horizontal_alignment = 1
@@ -180,10 +200,11 @@ theme_override_constants/separation = 13
 
 [node name="Labels" type="VBoxContainer" parent="Control/ResourcesContainer"]
 layout_mode = 2
-theme_override_constants/separation = 19
+theme_override_constants/separation = 24
 
 [node name="EnergyLabel" type="Label" parent="Control/ResourcesContainer/Labels"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_o2t6a")
 theme_override_font_sizes/font_size = 28
 text = "Energy:"
 horizontal_alignment = 2
@@ -191,24 +212,28 @@ vertical_alignment = 1
 
 [node name="O2Label" type="Label" parent="Control/ResourcesContainer/Labels"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_o2t6a")
 theme_override_font_sizes/font_size = 28
 text = "O2:"
 horizontal_alignment = 2
 
 [node name="CO2Label" type="Label" parent="Control/ResourcesContainer/Labels"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_o2t6a")
 theme_override_font_sizes/font_size = 28
 text = "CO2:"
 horizontal_alignment = 2
 
 [node name="WaterLabel" type="Label" parent="Control/ResourcesContainer/Labels"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_o2t6a")
 theme_override_font_sizes/font_size = 28
 text = "Water:"
 horizontal_alignment = 2
 
 [node name="BiomassLabel" type="Label" parent="Control/ResourcesContainer/Labels"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_o2t6a")
 theme_override_font_sizes/font_size = 28
 text = "Biomass:"
 horizontal_alignment = 2
@@ -237,7 +262,7 @@ theme_override_font_sizes/font_size = 26
 theme_override_styles/background = ExtResource("2_dajm1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_dajm1")
 step = 1.0
-value = 75.0
+value = 50.0
 rounded = true
 show_percentage = false
 
@@ -273,44 +298,54 @@ theme_override_font_sizes/font_size = 26
 theme_override_styles/background = ExtResource("2_dajm1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_3sbvi")
 step = 1.0
-value = 10.0
+value = 25.0
 rounded = true
 show_percentage = false
 
 [node name="Delta" type="VBoxContainer" parent="Control/ResourcesContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 24
 
 [node name="EnergyDelta" type="Label" parent="Control/ResourcesContainer/Delta"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_o2t6a")
 theme_override_font_sizes/font_size = 28
-text = "0"
+text = "0.0"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="O2Delta" type="Label" parent="Control/ResourcesContainer/Delta"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_o2t6a")
 theme_override_font_sizes/font_size = 28
-text = "0"
+text = "0.0"
+horizontal_alignment = 2
 
 [node name="CO2Delta" type="Label" parent="Control/ResourcesContainer/Delta"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_o2t6a")
 theme_override_font_sizes/font_size = 28
-text = "0"
+text = "0.0"
+horizontal_alignment = 2
 
 [node name="WaterDelta" type="Label" parent="Control/ResourcesContainer/Delta"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_o2t6a")
 theme_override_font_sizes/font_size = 28
-text = "0"
+text = "0.0"
+horizontal_alignment = 2
 
 [node name="BiomassDelta" type="Label" parent="Control/ResourcesContainer/Delta"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_o2t6a")
 theme_override_font_sizes/font_size = 28
-text = "0"
+text = "0.0"
+horizontal_alignment = 2
 
 [node name="Control" type="Control" parent="Control"]
 layout_mode = 1
@@ -327,37 +362,37 @@ size_flags_horizontal = 3
 [node name="O2Range" type="ColorRect" parent="Control/Control"]
 z_index = -1
 layout_mode = 2
-offset_left = 276.0
-offset_top = 66.0
-offset_right = 427.0
+offset_left = 288.0
+offset_top = 64.0
+offset_right = 439.0
 offset_bottom = 118.0
 color = Color(0.196078, 0.545098, 0.94902, 1)
 
 [node name="CO2Range" type="ColorRect" parent="Control/Control"]
 z_index = -1
 layout_mode = 2
-offset_left = 186.0
+offset_left = 198.0
 offset_top = 124.0
-offset_right = 306.0
-offset_bottom = 176.0
+offset_right = 318.0
+offset_bottom = 177.0
 color = Color(0.976471, 0.0235294, 0.188235, 1)
 
 [node name="WaterRange" type="ColorRect" parent="Control/Control"]
 z_index = -1
 layout_mode = 2
-offset_left = 216.0
-offset_top = 184.0
-offset_right = 336.0
-offset_bottom = 236.0
+offset_left = 229.0
+offset_top = 182.0
+offset_right = 349.0
+offset_bottom = 235.0
 color = Color(0.27451, 0.372549, 0.980392, 1)
 
 [node name="BiomassRange" type="ColorRect" parent="Control/Control"]
 z_index = -1
 layout_mode = 2
-offset_left = 156.0
-offset_top = 243.0
-offset_right = 246.0
-offset_bottom = 295.0
+offset_left = 168.0
+offset_top = 240.0
+offset_right = 258.0
+offset_bottom = 294.0
 color = Color(0.219608, 0.501961, 0.231373, 1)
 
 [node name="Log" type="Panel" parent="."]
@@ -387,3 +422,23 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 24
 theme_override_styles/background = ExtResource("11_6rr40")
 text = "Day 1: Info"
+
+[node name="OptionsPanel" parent="." instance=ExtResource("16_o2t6a")]
+layout_mode = 1
+
+[node name="OptionsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 20.0
+offset_right = 87.0
+offset_bottom = 75.0
+pivot_offset = Vector2(27, 27)
+theme_override_icons/icon = ExtResource("17_8gukh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8gukh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0tr35")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8gkfd")
+expand_icon = true
+
+[connection signal="mouse_entered" from="OptionsButton" to="." method="_on_options_button_mouse_entered"]
+[connection signal="mouse_exited" from="OptionsButton" to="." method="_on_options_button_mouse_exited"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]

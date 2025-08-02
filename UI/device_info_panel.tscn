@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://be2farbhpdj0c"]
+[gd_scene load_steps=5 format=3 uid="uid://be2farbhpdj0c"]
 
 [ext_resource type="StyleBox" uid="uid://dnp1r6bcw232f" path="res://resources/info_panel.tres" id="1_ffxop"]
+[ext_resource type="FontFile" uid="uid://db3bl2r4rl2tu" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Bold.ttf" id="2_csvjy"]
+[ext_resource type="FontFile" uid="uid://c05rnlll14j36" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="3_otkcf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7tqi"]
 bg_color = Color(1, 0.862745, 0, 1)
@@ -25,8 +27,10 @@ theme_override_styles/panel = ExtResource("1_ffxop")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 45.0
+offset_top = 8.0
+offset_bottom = 53.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_csvjy")
 theme_override_font_sizes/font_size = 32
 text = "Device Name"
 horizontal_alignment = 1
@@ -36,10 +40,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -55.0
-offset_top = 6.0
-offset_right = -5.0
-offset_bottom = 56.0
+offset_left = -46.0
+offset_top = -10.0
+offset_right = 9.0
+offset_bottom = 40.0
 grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_c7tqi")
 
@@ -49,9 +53,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_otkcf")
 theme_override_font_sizes/font_size = 32
 text = "10"
 horizontal_alignment = 1
@@ -67,6 +74,7 @@ offset_right = 180.0
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_otkcf")
 theme_override_font_sizes/font_size = 24
 text = "1 Input
 1 Input
@@ -89,6 +97,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_otkcf")
 theme_override_font_sizes/font_size = 32
 text = "  =>  "
 horizontal_alignment = 1
@@ -108,6 +117,7 @@ grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_otkcf")
 theme_override_font_sizes/font_size = 24
 text = "1 Output
 1 Output

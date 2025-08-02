@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://chco3605o6bi"]
+[gd_scene load_steps=4 format=3 uid="uid://chco3605o6bi"]
 
 [ext_resource type="StyleBox" uid="uid://dnp1r6bcw232f" path="res://resources/info_panel.tres" id="1_q6h5q"]
+[ext_resource type="FontFile" uid="uid://db3bl2r4rl2tu" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Bold.ttf" id="2_hhk0c"]
+[ext_resource type="FontFile" uid="uid://c05rnlll14j36" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="3_umhvs"]
 
 [node name="TileInfoPanel" type="Panel"]
 anchors_preset = 3
@@ -26,6 +28,7 @@ offset_top = 10.0
 offset_right = 112.0
 offset_bottom = 60.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_hhk0c")
 theme_override_font_sizes/font_size = 36
 text = "Tile Type"
 horizontal_alignment = 1
@@ -43,6 +46,8 @@ offset_right = 225.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("3_umhvs")
+theme_override_fonts/bold_italics_font = ExtResource("2_hhk0c")
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true

@@ -3,6 +3,7 @@ extends Control
 
 
 func _ready() -> void:
+	$OptionsPanel.visible = false
 	%DeviceInfoPanel.visible = false
 	%TileInfoPanel.visible = false
 
@@ -28,6 +29,11 @@ func _ready() -> void:
 	EventBus.water_delta_updated.connect(_on_water_delta_updated)
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle_options"):
+		$OptionsPanel.visible = true
+
+
 func _on_device_card_hovered(device_type: Enums.DeviceType) -> void:
 	if device_type != Enums.DeviceType.Null:
 		set_device_info_panel(device_type)
@@ -44,7 +50,14 @@ func _on_tile_highlighted(_pos: Vector3, tile_data: MapTile) -> void:
 		if tile_data.device_type != Enums.DeviceType.Null:
 			%TileInfoPanel/TileInfoData.text = Constants.DEVICES[tile_data.device_type]["name"] + "\nPress X to destroy"
 		else:
-			%TileInfoPanel/TileInfoData.text = Constants.TILE_DESCRIPTIONS[tile_data.tile_type]
+			match tile_data.tile_type:
+				Enums.TileType.Water:
+					%TileInfoPanel/TileInfoData.text = Constants.TILE_DESCRIPTIONS[tile_data.tile_type] % [ResourcesManager.water_tiles, ResourcesManager.water_regen]
+				Enums.TileType.Forest:
+					%TileInfoPanel/TileInfoData.text = Constants.TILE_DESCRIPTIONS[tile_data.tile_type] % [ResourcesManager.forest_tiles, ResourcesManager.co2_sink]
+				_:
+					%TileInfoPanel/TileInfoData.text = Constants.TILE_DESCRIPTIONS[tile_data.tile_type]
+
 		%TileInfoPanel.visible = true
 	else:
 		%TileInfoPanel.visible = false
@@ -119,3 +132,14 @@ func set_device_info_panel(device_type: Enums.DeviceType) -> void:
 
 	%DeviceInfoPanel/InputLabel.text = input_label
 	%DeviceInfoPanel/OutputLabel.text = output_label
+
+
+
+func _on_options_button_pressed() -> void:
+	$OptionsPanel.visible = true
+
+func _on_options_button_mouse_entered() -> void:
+	$OptionsButton.scale = Vector2(1.2, 1.2)
+
+func _on_options_button_mouse_exited() -> void:
+	$OptionsButton.scale = Vector2.ONE

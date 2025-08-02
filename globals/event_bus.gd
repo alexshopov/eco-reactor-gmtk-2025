@@ -26,3 +26,7 @@ signal water_delta_updated(value: float)
 
 signal biomass_updated(value: float)
 signal biomass_delta_updated(value: float)
+
+signal options_panel_opened
+signal options_panel_closed
+signal master_volume_changed(value: float)

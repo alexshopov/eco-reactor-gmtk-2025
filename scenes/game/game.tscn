@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b2ila5fjvme4y"]
+[gd_scene load_steps=13 format=3 uid="uid://b2ila5fjvme4y"]
 
 [ext_resource type="Script" uid="uid://dtgr0qiyxgw8r" path="res://scenes/game/game.gd" id="1_sul5r"]
 [ext_resource type="Script" uid="uid://de1mu0qr8x5hd" path="res://managers/game_manager.gd" id="2_0sr1o"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b5fdswfwb1bmo" path="res://scenes/map/grid_map.tscn" id="7_87uf6"]
 [ext_resource type="AudioStream" uid="uid://brgbxnll3lq5e" path="res://assets/sound_fx/build.wav" id="8_4j704"]
 [ext_resource type="PackedScene" uid="uid://cjdc0vjsgfxlp" path="res://entities/devices/biomass_generator/biomass_generator.tscn" id="8_kp23o"]
+[ext_resource type="PackedScene" uid="uid://cp1c83yvppefx" path="res://entities/devices/nutrient_vat/nutrient_vat.tscn" id="9_5jirj"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_sul5r")
@@ -25,6 +26,7 @@ compost_reactor_scene = ExtResource("6_2a8rs")
 water_purifier_scene = ExtResource("6_87uf6")
 solar_panel_scene = ExtResource("7_2a8rs")
 biomass_generator_scene = ExtResource("8_kp23o")
+nutrient_vat_scene = ExtResource("9_5jirj")
 
 [node name="DeviceSoundPlayer" type="AudioStreamPlayer" parent="DeviceManager"]
 stream = ExtResource("8_4j704")

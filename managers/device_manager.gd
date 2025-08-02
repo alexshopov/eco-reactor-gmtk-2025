@@ -12,6 +12,8 @@ var water_purifier_scene : PackedScene
 var solar_panel_scene : PackedScene
 @export
 var biomass_generator_scene : PackedScene
+@export
+var nutrient_vat_scene : PackedScene
 
 var dialog_theme : Theme = load("res://resources/confirmation_dialog.tres")
 var active_tile : Dictionary = {
@@ -42,6 +44,9 @@ func _ready() -> void:
 		},
 		Enums.DeviceType.BiomassGenerator: {
 			"scene": biomass_generator_scene
+		},
+		Enums.DeviceType.NutrientVat: {
+			"scene": nutrient_vat_scene
 		}
 	}
 

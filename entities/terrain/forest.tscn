@@ -1,39 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://brd13ca3vho3f"]
+[gd_scene load_steps=4 format=3 uid="uid://brd13ca3vho3f"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hlsp"]
-albedo_color = Color(7.94157e-07, 0.421979, 0.0292988, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_rmvt4"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_5hlsp")
-top_radius = 0.0
-bottom_radius = 0.25
-radial_segments = 12
-rings = 1
-cap_top = false
-cap_bottom = false
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmvt4"]
-albedo_color = Color(0, 0.423529, 0.027451, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_2vjlx"]
-material = SubResource("StandardMaterial3D_rmvt4")
-top_radius = 0.0
-bottom_radius = 0.25
-height = 1.0
-radial_segments = 12
-rings = 1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5tw4d"]
-albedo_color = Color(0, 0.423529, 0.027451, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_q22qs"]
-material = SubResource("StandardMaterial3D_5tw4d")
-top_radius = 0.0
-bottom_radius = 0.25
-height = 1.5
-radial_segments = 12
-rings = 1
+[ext_resource type="PackedScene" uid="uid://b7olicm43a1jv" path="res://assets/models/Forest.glb" id="1_57bnr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1s2m"]
 albedo_color = Color(0.0335669, 0.23782, 0.0208081, 1)
@@ -44,17 +11,7 @@ size = Vector2(1.8, 1.8)
 
 [node name="Trees" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.305298)
-mesh = SubResource("CylinderMesh_rmvt4")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.307466, 0.5, 0.329303)
-mesh = SubResource("CylinderMesh_2vjlx")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.352295, 0.75, 0.113403)
-mesh = SubResource("CylinderMesh_q22qs")
+[node name="Forest" parent="." instance=ExtResource("1_57bnr")]
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_57bnr")

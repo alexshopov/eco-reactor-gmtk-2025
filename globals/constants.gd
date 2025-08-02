@@ -32,8 +32,8 @@ const TILE_DATA : Dictionary = {
 
 const TILE_DESCRIPTIONS : Dictionary = {
 	Enums.TileType.Ground: "[center]Dirt[/center]", 
-	Enums.TileType.Water: "Each water tile produces [color=#465ffa][b]%0.1f[/b][/color] units of water per day" % WATER_PASSIVE_REGEN,
-	Enums.TileType.Forest: "Each forest tile absorbs [color=#FF0000][b]%0.1f[/b][/color] units of CO2 per day" % TREE_CO2_SINK,
+	Enums.TileType.Water: "%d water tiles produce [color=#465ffa][b]%0.1f[/b][/color] units of water per day",
+	Enums.TileType.Forest: "%d forest tile absorb [color=#FF0000][b]%0.1f[/b][/color] units of CO2 per day"
 }
 
 const RESOURCES = [
@@ -142,7 +142,7 @@ const DEVICES = {
 			{ "Biomass": 0 },
 		],
 		"outputs": [
-			{ "Energy": 1 },
+			{ "Energy": 0 },
 			{ "Water": 0 },
 			{ "O2": 0 },
 			{ "CO2": 0 },

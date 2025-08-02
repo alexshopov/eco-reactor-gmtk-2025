@@ -1,0 +1,116 @@
+[gd_scene load_steps=6 format=3 uid="uid://og2bfmenp1mj"]
+
+[ext_resource type="Script" uid="uid://dlhcmjkaqq6gq" path="res://UI/options_panel/options_panel.gd" id="1_ejg1v"]
+[ext_resource type="FontFile" uid="uid://db3bl2r4rl2tu" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Bold.ttf" id="2_6hx4l"]
+[ext_resource type="FontFile" uid="uid://c05rnlll14j36" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="3_potkh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tl8e7"]
+content_margin_top = 20.0
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.288518, 0.288518, 0.288518, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mdly"]
+
+[node name="OptionsPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ejg1v")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -351.0
+offset_top = -259.5
+offset_right = 351.0
+offset_bottom = 259.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tl8e7")
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.0
+offset_right = 203.0
+offset_bottom = 116.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_6hx4l")
+theme_override_font_sizes/font_size = 96
+text = "Options"
+
+[node name="CloseBtn" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -61.0
+offset_top = 8.0
+offset_right = -15.0
+offset_bottom = 74.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_6hx4l")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_3mdly")
+text = "X"
+
+[node name="VolumeControl" type="Control" parent="Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VolumeControl"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.0
+offset_right = 176.0
+offset_bottom = 58.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_potkh")
+theme_override_font_sizes/font_size = 48
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="Panel/VolumeControl"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(580, 30)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -290.0
+offset_top = -30.0
+offset_right = 290.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[connection signal="pressed" from="Panel/CloseBtn" to="." method="_on_close_btn_pressed"]
+[connection signal="value_changed" from="Panel/VolumeControl/VolumeSlider" to="." method="_on_volume_slider_value_changed"]

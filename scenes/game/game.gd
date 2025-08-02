@@ -1,6 +1,5 @@
 extends Node3D
 
-
 var active_tile : Vector3 :
 	set(value):
 		if active_tile == value:
@@ -8,7 +7,6 @@ var active_tile : Vector3 :
 
 		active_tile = value
 		EventBus.active_tile_changed.emit(active_tile)
-
 
 @onready
 var game_manager : GameManager = $GameManager

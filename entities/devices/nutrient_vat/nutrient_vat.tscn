@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp1c83yvppefx"]
+
+[ext_resource type="PackedScene" uid="uid://dldmwkf57cuit" path="res://assets/models/NutrientVat.glb" id="1_6ywcb"]
+[ext_resource type="Script" uid="uid://bubvfc8q2yoqy" path="res://entities/devices/nutrient_vat/nutrient_vat.gd" id="1_nbn4k"]
+
+[node name="NutrientVat" type="Node3D"]
+script = ExtResource("1_nbn4k")
+device_type = 5
+energy_input = 1.0
+water_input = 1.0
+biomass_output = 1.0
+
+[node name="NutrientVat" parent="." instance=ExtResource("1_6ywcb")]

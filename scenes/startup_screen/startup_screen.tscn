@@ -1,0 +1,131 @@
+[gd_scene load_steps=9 format=3 uid="uid://bmmrt53kbjs6v"]
+
+[ext_resource type="Script" uid="uid://ddtdhqmxfjl5f" path="res://scenes/startup_screen/startup_screen.gd" id="1_qjv71"]
+[ext_resource type="Texture2D" uid="uid://btrpxdlo1amuy" path="res://assets/images/splash.png" id="1_w6nra"]
+[ext_resource type="Texture2D" uid="uid://bdvhdasm7rrud" path="res://assets/images/gmtk_banner_transparent.png" id="2_e6sr3"]
+[ext_resource type="PackedScene" uid="uid://t24sqduoweg3" path="res://scenes/main/main.tscn" id="2_jvxtu"]
+[ext_resource type="FontFile" uid="uid://db3bl2r4rl2tu" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Bold.ttf" id="2_p7ovc"]
+[ext_resource type="FontFile" uid="uid://c05rnlll14j36" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="3_qjv71"]
+[ext_resource type="StyleBox" uid="uid://de2ti4kqn82o0" path="res://resources/button_stylebox.tres" id="4_jvxtu"]
+[ext_resource type="PackedScene" uid="uid://og2bfmenp1mj" path="res://UI/options_panel/options_panel.tscn" id="8_mwnac"]
+
+[node name="StartupScreen" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qjv71")
+main_scene = ExtResource("2_jvxtu")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_w6nra")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -791.5
+offset_top = -21.0
+offset_right = 791.5
+offset_bottom = 266.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_p7ovc")
+theme_override_font_sizes/font_size = 238
+text = "Eco Reactor"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.0
+offset_top = 67.0
+offset_right = 269.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="NewGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qjv71")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("4_jvxtu")
+text = "New Game"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qjv71")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("4_jvxtu")
+text = "Options
+"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qjv71")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("4_jvxtu")
+text = "Credits
+"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -270.0
+offset_right = 480.0
+grow_vertical = 0
+texture = ExtResource("2_e6sr3")
+expand_mode = 1
+
+[node name="Copyright" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -137.5
+offset_top = -38.0
+offset_right = 137.5
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_qjv71")
+theme_override_font_sizes/font_size = 24
+text = "(c) 2025 Alex Shopov"
+
+[node name="Version" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 844.0
+offset_top = -39.0
+offset_right = 949.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_qjv71")
+theme_override_font_sizes/font_size = 24
+text = "v. 1.0.0"
+
+[node name="OptionsPanel" parent="." instance=ExtResource("8_mwnac")]
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

@@ -1,6 +1,7 @@
 [gd_resource type="StyleBoxFlat" format=3 uid="uid://dnp1r6bcw232f"]
 
 [resource]
+content_margin_top = 20.0
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
