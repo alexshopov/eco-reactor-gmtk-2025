@@ -32,7 +32,7 @@ func _on_tile_highlighted(_pos: Vector3, tile_data: MapTile) -> void:
 	if tile_data:
 		%TileInfoPanel/TileInfoLabel.text = Constants.TILE_DATA[tile_data.tile_type]
 		if tile_data.device_type != Enums.DeviceType.Null:
-			%TileInfoPanel/TileInfoData.text = Constants.DEVICES[tile_data.device_type]["name"]
+			%TileInfoPanel/TileInfoData.text = Constants.DEVICES[tile_data.device_type]["name"] + "\nPress X to destroy"
 		else:
 			%TileInfoPanel/TileInfoData.text = Constants.TILE_DESCRIPTIONS[tile_data.tile_type]
 		%TileInfoPanel.visible = true

@@ -30,6 +30,7 @@ func _ready() -> void:
 
 	EventBus.active_tile_changed.connect(_on_active_tile_changed)
 	EventBus.device_placed.connect(_on_device_placed)
+	EventBus.device_destroyed.connect(_on_device_destroyed)
 
 
 func _on_active_tile_changed(active_tile: Vector3) -> void:
@@ -43,3 +44,9 @@ func _on_device_placed(pos: Vector3, tile_data: MapTile) -> void:
 	var cell := pos
 	cell.y = -1
 	tiles[local_to_map(cell)] = tile_data
+
+
+func _on_device_destroyed(pos: Vector3) -> void:
+	var cell := pos
+	cell.y = -1
+	tiles[local_to_map(cell)].device_type = Enums.DeviceType.Null

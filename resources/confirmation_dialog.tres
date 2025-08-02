@@ -1,0 +1,4 @@
+[gd_resource type="Theme" format=3 uid="uid://dfsg4lmmnysja"]
+
+[resource]
+AcceptDialog/constants/buttons_min_width = 100

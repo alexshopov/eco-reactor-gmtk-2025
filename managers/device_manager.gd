@@ -13,6 +13,7 @@ var solar_panel_scene : PackedScene
 @export
 var biomass_generator_scene : PackedScene
 
+var dialog_theme : Theme = load("res://resources/confirmation_dialog.tres")
 var active_tile : Dictionary = {
 	"pos": Vector3.INF,
 	"data": null
@@ -54,6 +55,13 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click"):
 		set_device()
 
+	if event.is_action_pressed("destroy_device"):
+		if not active_tile.data:
+			return
+
+		if active_tile.data.device_type != Enums.DeviceType.Null:
+			open_confirmation_dialog()
+
 
 func _on_tick(_turn: int) -> void:
 	for idx in active_devices:
@@ -85,9 +93,6 @@ func _on_tile_highlighted(tile_pos: Vector3, tile_data: MapTile) -> void:
 	if temp_device and temp_device.can_build(active_tile["data"]):
 		temp_device.global_position = active_tile["pos"]
 
-	# var device := active_devices.get(active_tile) as Device
-	# EventBus.device_highlighted.emit(device)
-
 
 func set_device() -> void:
 	if temp_device and ResourcesManager.energy > temp_cost:
@@ -102,3 +107,22 @@ func set_device() -> void:
 		sound_player.play()
 
 		EventBus.device_placed.emit(active_tile["pos"], active_tile["data"])
+
+
+func open_confirmation_dialog() -> void:
+	var dialog := ConfirmationDialog.new()
+	dialog.theme = dialog_theme
+	dialog.dialog_text = "Destroy %s?" % Constants.DEVICES[active_tile.data.tile_type].name
+
+	dialog.confirmed.connect(delete_device)
+
+	add_child(dialog)
+	dialog.popup_centered()
+	dialog.show()
+
+
+func delete_device() -> void:
+	# var device := active_devices.get(active_tile).pos as TileData
+	active_devices.get(active_tile.pos).queue_free()
+	active_devices.erase(active_tile.pos)
+	EventBus.device_destroyed.emit(active_tile.pos)
