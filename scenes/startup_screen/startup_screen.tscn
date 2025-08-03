@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmmrt53kbjs6v"]
+[gd_scene load_steps=10 format=3 uid="uid://bmmrt53kbjs6v"]
 
 [ext_resource type="Script" uid="uid://ddtdhqmxfjl5f" path="res://scenes/startup_screen/startup_screen.gd" id="1_qjv71"]
 [ext_resource type="Texture2D" uid="uid://btrpxdlo1amuy" path="res://assets/images/splash.png" id="1_w6nra"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://c05rnlll14j36" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="3_qjv71"]
 [ext_resource type="StyleBox" uid="uid://de2ti4kqn82o0" path="res://resources/button_stylebox.tres" id="4_jvxtu"]
 [ext_resource type="PackedScene" uid="uid://og2bfmenp1mj" path="res://UI/options_panel/options_panel.tscn" id="8_mwnac"]
+[ext_resource type="PackedScene" uid="uid://dt4ca5ltm23wj" path="res://UI/credits.tscn" id="9_g2vrn"]
 
 [node name="StartupScreen" type="Panel"]
 anchors_preset = 15
@@ -104,7 +105,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_qjv71")
 theme_override_font_sizes/font_size = 24
-text = "(c) 2025 Alex Shopov"
+text = "(c) 2025 Alexander Shopov"
 
 [node name="Version" type="Label" parent="."]
 layout_mode = 1
@@ -124,6 +125,9 @@ theme_override_font_sizes/font_size = 24
 text = "v. 1.0.0"
 
 [node name="OptionsPanel" parent="." instance=ExtResource("8_mwnac")]
+layout_mode = 1
+
+[node name="Credits" parent="." instance=ExtResource("9_g2vrn")]
 layout_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]

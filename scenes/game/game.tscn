@@ -42,7 +42,8 @@ projection = 1
 size = 21.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.68319, -0.708735, -0.175912, 0.127346, -0.352838, 0.926978, -0.719051, 0.610901, 0.33131, 6.15394, 9.53546, 12.4124)
+transform = Transform3D(-0.629766, -0.72924, 0.267589, 0.653031, -0.310484, 0.69076, -0.420648, 0.609762, 0.671749, 6.15394, 9.53546, 15.4117)
+light_energy = 1.5
 shadow_enabled = true
 
 [node name="UI" parent="." instance=ExtResource("6_5i0tg")]
