@@ -2,7 +2,7 @@
 
 Eco Reactor is a minimalist ecological simulation built for GMTK Game Jam 2025, based on the theme “Loop.”
 
-<img width="1600" height="910" alt="eco-reactor_01" src="https://github.com/user-attachments/assets/360d7d7d-3f3c-44da-a3ad-264d9b370f10" />
+<img width="2554" height="1436" alt="eco-reactor_03" src="https://github.com/user-attachments/assets/2089eb82-71a7-4e6e-b528-838970323e25" />
 
 
 ## How it Works
