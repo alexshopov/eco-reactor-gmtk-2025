@@ -64,6 +64,7 @@ func _ready() -> void:
 	EventBus.device_card_clicked.connect(_on_device_card_clicked)
 	EventBus.device_card_cancelled.connect(_on_device_card_cancelled)
 	EventBus.tile_highlighted.connect(_on_tile_highlighted)
+	EventBus.reset_simulation.connect(_on_reset_simulation)
 
 
 func _input(event: InputEvent) -> void:
@@ -76,6 +77,16 @@ func _input(event: InputEvent) -> void:
 
 		if active_tile.data.device_type != Enums.DeviceType.Null:
 			open_confirmation_dialog()
+
+
+func _on_reset_simulation() -> void:
+	for idx in active_devices:
+		active_devices[idx].queue_free()
+		EventBus.device_destroyed.emit(idx)
+
+	active_devices.clear()
+	if temp_device:
+		temp_device.queue_free()
 
 
 func _on_tick(_turn: int) -> void:

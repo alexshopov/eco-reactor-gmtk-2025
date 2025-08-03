@@ -8,6 +8,6 @@ script = ExtResource("1_mx1ps")
 device_type = 6
 energy_input = 1.0
 biomass_input = 1.0
-co2_output = 2.0
+co2_output = 1.0
 
 [node name="FungalDecomposer" parent="." instance=ExtResource("2_1nxos")]

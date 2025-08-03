@@ -1,7 +1,7 @@
 extends Node
 
 const TICK_DURATION_FAST : int = 3
-const TICK_DURATION_NORMAL : int = 6
+const TICK_DURATION_NORMAL : int = 5
 
 const ENERGY_INITIAL_VALUE : float = 100
 
@@ -163,12 +163,12 @@ const DEVICES = {
 			{ "Energy": 0 },
 			{ "Water": 0 },
 			{ "O2": 0 },
-			{ "CO2": 2 },
+			{ "CO2": 1 },
 			{ "Biomass": 0 },
 		]
 	},
 	Enums.DeviceType.AeroponicTower: {
-		"name": "Fungal Decomposer",
+		"name": "Aeroponic Tower",
 		"cost": 18,
 		"inputs": [
 			{ "Energy": 2 },

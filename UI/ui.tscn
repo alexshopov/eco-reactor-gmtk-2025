@@ -1,10 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://4g70smrxjuxl"]
+[gd_scene load_steps=31 format=3 uid="uid://4g70smrxjuxl"]
 
 [ext_resource type="Script" uid="uid://dfb6e8jowabsd" path="res://UI/ui.gd" id="1_2fwl4"]
 [ext_resource type="Theme" uid="uid://dfsg4lmmnysja" path="res://resources/confirmation_dialog.tres" id="1_o2jkc"]
 [ext_resource type="PackedScene" uid="uid://be2farbhpdj0c" path="res://UI/device_info_panel.tscn" id="2_c7tqi"]
 [ext_resource type="StyleBox" uid="uid://5dh5qlqklgt7" path="res://resources/progress_bar_backgroundi.tres" id="2_dajm1"]
 [ext_resource type="PackedScene" uid="uid://chco3605o6bi" path="res://UI/tile_info_panel.tscn" id="3_4fiuh"]
+[ext_resource type="PackedScene" uid="uid://bjipls0823m6e" path="res://UI/game_over.tscn" id="3_7j5ik"]
 [ext_resource type="PackedScene" uid="uid://cuopoh0k6wruj" path="res://UI/toolbar/card_ui.tscn" id="4_hat8c"]
 [ext_resource type="Texture2D" uid="uid://2vfa5phy75rj" path="res://assets/icons/algae_tank.png" id="5_3sbvi"]
 [ext_resource type="Texture2D" uid="uid://1xcnioumgjw4" path="res://assets/icons/compost_reactor.png" id="6_nm1m0"]
@@ -34,7 +35,11 @@ corner_radius_bottom_left = 5
 bg_color = Color(1, 0.862745, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dajm1"]
-bg_color = Color(0.194391, 0.545017, 0.948528, 1)
+resource_local_to_scene = true
+bg_color = Color(0.194392, 0.545018, 0.948528, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7j5ik"]
+bg_color = Color(0.237539, 0.237539, 0.237539, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6gg6"]
 bg_color = Color(0.975006, 0.0252268, 0.189674, 1)
@@ -64,6 +69,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_o2jkc")
 script = ExtResource("1_2fwl4")
+
+[node name="GameOver" parent="." instance=ExtResource("3_7j5ik")]
+unique_name_in_owner = true
+layout_mode = 1
 
 [node name="Console" type="TextEdit" parent="."]
 unique_name_in_owner = true
@@ -273,6 +282,19 @@ value = 75.0
 rounded = true
 show_percentage = false
 
+[node name="O2ProgressBarHide" type="ProgressBar" parent="Control/ResourcesContainer/ProgressBars"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(300, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/background = ExtResource("2_dajm1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7j5ik")
+step = 1.0
+value = 100.0
+rounded = true
+show_percentage = false
+
 [node name="CO2ProgressBar" type="ProgressBar" parent="Control/ResourcesContainer/ProgressBars"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 35)
@@ -282,6 +304,19 @@ theme_override_styles/background = ExtResource("2_dajm1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_e6gg6")
 step = 1.0
 value = 40.0
+rounded = true
+show_percentage = false
+
+[node name="CO2ProgressBarHide" type="ProgressBar" parent="Control/ResourcesContainer/ProgressBars"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(300, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/background = ExtResource("2_dajm1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7j5ik")
+step = 1.0
+value = 100.0
 rounded = true
 show_percentage = false
 
@@ -297,6 +332,19 @@ value = 50.0
 rounded = true
 show_percentage = false
 
+[node name="WaterProgressBarHide" type="ProgressBar" parent="Control/ResourcesContainer/ProgressBars"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(300, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/background = ExtResource("2_dajm1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7j5ik")
+step = 1.0
+value = 100.0
+rounded = true
+show_percentage = false
+
 [node name="BiomassProgressBar" type="ProgressBar" parent="Control/ResourcesContainer/ProgressBars"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 35)
@@ -306,6 +354,19 @@ theme_override_styles/background = ExtResource("2_dajm1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_3sbvi")
 step = 1.0
 value = 25.0
+rounded = true
+show_percentage = false
+
+[node name="BiomassProgressBarHide" type="ProgressBar" parent="Control/ResourcesContainer/ProgressBars"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(300, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/background = ExtResource("2_dajm1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7j5ik")
+step = 1.0
+value = 100.0
 rounded = true
 show_percentage = false
 
@@ -445,6 +506,24 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_8gukh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0tr35")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8gkfd")
 expand_icon = true
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="O2Timer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 0.25
+
+[node name="CO2Timer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 0.25
+
+[node name="WaterTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 0.25
+
+[node name="BiomassTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 0.25
 
 [connection signal="mouse_entered" from="OptionsButton" to="." method="_on_options_button_mouse_entered"]
 [connection signal="mouse_exited" from="OptionsButton" to="." method="_on_options_button_mouse_exited"]

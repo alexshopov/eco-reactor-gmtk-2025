@@ -7,11 +7,29 @@ func _ready() -> void:
 	%DeviceInfoPanel.visible = false
 	%TileInfoPanel.visible = false
 
-	EventBus.tile_highlighted.connect(_on_tile_highlighted)
-	# EventBus.device_highlighted.connect(_on_device_highlighted)
-	EventBus.device_card_hovered.connect(_on_device_card_hovered)
+	%O2Timer.timeout.connect(func(): 
+		%O2ProgressBar.visible = not %O2ProgressBar.visible
+		%O2ProgressBarHide.visible = not %O2ProgressBar.visible
+	)
+	%CO2Timer.timeout.connect(func(): 
+		%CO2ProgressBar.visible = not %CO2ProgressBar.visible
+		%CO2ProgressBarHide.visible = not %CO2ProgressBar.visible
+	)
+	%WaterTimer.timeout.connect(func(): 
+		%WaterProgressBar.visible = not %WaterProgressBar.visible
+		%WaterProgressBarHide.visible = not %WaterProgressBar.visible
+	)
+	%BiomassTimer.timeout.connect(func(): 
+		%BiomassProgressBar.visible = not %BiomassProgressBar.visible
+		%BiomassProgressBarHide.visible = not %BiomassProgressBar.visible
+	)
 
+	EventBus.tile_highlighted.connect(_on_tile_highlighted)
+	EventBus.device_card_hovered.connect(_on_device_card_hovered)
 	EventBus.tick_completed.connect(_on_tick)
+
+	EventBus.resource_entered_non_ideal_range.connect(_on_resource_entered_non_ideal_range)
+	EventBus.resource_entered_ideal_range.connect(_on_resource_entered_ideal_range)
 
 	EventBus.energy_updated.connect(_on_energy_updated)
 	EventBus.energy_delta_updated.connect(_on_energy_delta_updated)
@@ -27,6 +45,9 @@ func _ready() -> void:
 
 	EventBus.water_updated.connect(_on_water_updated)
 	EventBus.water_delta_updated.connect(_on_water_delta_updated)
+
+	EventBus.system_collapsed.connect(_on_system_collapsed)
+	EventBus.reset_simulation.connect(_on_reset_simulation)
 
 
 func _input(event: InputEvent) -> void:
@@ -63,18 +84,12 @@ func _on_tile_highlighted(_pos: Vector3, tile_data: MapTile) -> void:
 		%TileInfoPanel.visible = false
 
 
-func _on_device_highlighted(device: Device) -> void:
-	if device:
-		var mouse_pos = get_viewport().get_mouse_position()
-		%DeviceInfoPanel.position = Vector2(mouse_pos.x - 200, mouse_pos.y + 10)
-		%DeviceInfoPanel.visible = true
-		%DeviceInfoPanel/DeviceInfoLabel.text = device.name
-	else:
-		%DeviceInfoPanel.visible = false
-
-
 func _on_tick(tick: int) -> void:
 	%TurnLabel.text = "Day %d" % tick
+
+
+func _on_system_collapsed() -> void:
+	$GameOver.show()
 
 
 func _on_energy_updated(value: float) -> void:
@@ -143,3 +158,67 @@ func _on_options_button_mouse_entered() -> void:
 
 func _on_options_button_mouse_exited() -> void:
 	$OptionsButton.scale = Vector2.ONE
+
+func _on_resource_entered_non_ideal_range(res: Enums.GameResource) -> void:
+	var timer : Timer = null
+	match res:
+		Enums.GameResource.O2:
+			timer = %O2Timer
+		Enums.GameResource.CO2:
+			timer = %CO2Timer
+		Enums.GameResource.Water:
+			timer = %WaterTimer
+		Enums.GameResource.Biomass:
+			timer = %BiomassTimer
+		_:
+			timer = null
+
+	blink_on(timer)
+
+
+func _on_resource_entered_ideal_range(res: Enums.GameResource) -> void:
+	var timer : Timer = null
+	match res:
+		Enums.GameResource.O2:
+			timer = %O2Timer
+		Enums.GameResource.CO2:
+			timer = %CO2Timer
+		Enums.GameResource.Water:
+			timer = %WaterTimer
+		Enums.GameResource.Biomass:
+			timer = %BiomassTimer
+		_:
+			timer = null
+
+	blink_off(timer)
+
+func blink_on(timer: Timer) -> void:
+	if not timer or not timer.is_stopped():
+		return
+	timer.start()
+
+
+func blink_off(timer: Timer) -> void:
+	if not timer or timer.is_stopped():
+		return
+	timer.stop()
+
+
+func _on_reset_simulation() -> void:
+	%TurnLabel.text = "Day 1"
+
+	$OptionsPanel.visible = false
+	%DeviceInfoPanel.visible = false
+	%TileInfoPanel.visible = false
+
+	%O2ProgressBar.visible = true
+	%O2ProgressBarHide.visible = false
+
+	%CO2ProgressBar.visible = true
+	%CO2ProgressBarHide.visible = false
+
+	%WaterProgressBar.visible = true
+	%WaterProgressBarHide.visible = false
+
+	%BiomassProgressBar.visible = true
+	%BiomassProgressBarHide.visible = false

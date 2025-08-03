@@ -30,3 +30,9 @@ signal biomass_delta_updated(value: float)
 signal options_panel_opened
 signal options_panel_closed
 signal master_volume_changed(value: float)
+
+signal resource_entered_non_ideal_range(game_resource: Enums.GameResource)
+signal resource_entered_ideal_range(game_resource: Enums.GameResource)
+
+signal system_collapsed
+signal reset_simulation

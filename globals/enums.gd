@@ -1,5 +1,12 @@
 extends Node
 
+enum GameResource {
+    O2,
+    CO2,
+    Water,
+    Biomass
+}
+
 enum TileType {
     Ground = 0,
     Water,

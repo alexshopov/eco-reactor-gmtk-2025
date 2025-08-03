@@ -5,6 +5,7 @@ extends GridMap
 var forest_spawn_chance : float = 0.1
 
 var tiles : Dictionary
+var base_tiles : Dictionary
 
 func _ready() -> void:
 	randomize()
@@ -27,10 +28,16 @@ func _ready() -> void:
 
 		tiles.set(cell, tile_data)
 
+	base_tiles = tiles.duplicate()
 
 	EventBus.active_tile_changed.connect(_on_active_tile_changed)
 	EventBus.device_placed.connect(_on_device_placed)
 	EventBus.device_destroyed.connect(_on_device_destroyed)
+	EventBus.reset_simulation.connect(_on_reset_simulation)
+
+
+func _on_reset_simulation() -> void:
+	tiles = base_tiles.duplicate()
 
 
 func _on_active_tile_changed(active_tile: Vector3) -> void:

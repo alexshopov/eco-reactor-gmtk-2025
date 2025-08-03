@@ -1,9 +1,6 @@
 class_name StartupScreen
 extends Panel
 
-@export
-var main_scene : PackedScene
-
 
 func _ready() -> void:
 	$OptionsPanel.visible = false
@@ -11,7 +8,7 @@ func _ready() -> void:
 
 
 func _on_new_game_button_pressed() -> void:
-	get_tree().change_scene_to_packed(main_scene)
+	SceneManager.go_to_main()
 
 
 func _on_options_button_pressed() -> void:

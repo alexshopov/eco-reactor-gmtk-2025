@@ -22,6 +22,7 @@ Enums="*res://globals/enums.gd"
 Constants="*res://globals/constants.gd"
 ResourcesManager="*res://managers/resources_manager.gd"
 GameOptions="*res://globals/game_options.gd"
+SceneManager="*res://managers/scene_manager.gd"
 
 [debug]
 
