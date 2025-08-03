@@ -13,5 +13,7 @@ enum DeviceType {
     WaterPurifier,
     SolarPanel,
     BiomassGenerator,
-    NutrientVat
+    NutrientVat,
+    FungalDecomposer,
+    AeroponicTower
 }

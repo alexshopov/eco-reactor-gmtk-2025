@@ -50,6 +50,14 @@ var co2_sink : float
 var water_tiles : int = 0
 var water_regen : float
 
+func _ready() -> void:
+	energy = Constants.ENERGY_INITIAL_VALUE
+	o2 = Constants.O2_INITIAL_VALUE
+	co2 = Constants.CO2_INITIAL_VALUE
+	water = Constants.WATER_INITIAL_VALUE
+	biomass = Constants.BIOMASS_INITIAL_VALUE
+
+
 func next_turn() -> void:
 	# standard decay
 	energy_delta = 0

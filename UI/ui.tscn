@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://4g70smrxjuxl"]
+[gd_scene load_steps=29 format=3 uid="uid://4g70smrxjuxl"]
 
 [ext_resource type="Script" uid="uid://dfb6e8jowabsd" path="res://UI/ui.gd" id="1_2fwl4"]
 [ext_resource type="Theme" uid="uid://dfsg4lmmnysja" path="res://resources/confirmation_dialog.tres" id="1_o2jkc"]
@@ -13,7 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://oeohn074t5mu" path="res://assets/icons/biomass_generator.png" id="9_h81ot"]
 [ext_resource type="Texture2D" uid="uid://b72qafl2mkewn" path="res://assets/icons/nutrient_vat.png" id="10_0w6e5"]
 [ext_resource type="StyleBox" uid="uid://dnp1r6bcw232f" path="res://resources/info_panel.tres" id="11_6rr40"]
+[ext_resource type="Texture2D" uid="uid://0phvys3cyed2" path="res://assets/icons/fungal_decomposer.png" id="12_8gkfd"]
 [ext_resource type="FontFile" uid="uid://db3bl2r4rl2tu" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Bold.ttf" id="12_ow1yt"]
+[ext_resource type="Texture2D" uid="uid://cnja7uy13qi3v" path="res://assets/icons/aeroponic_tower.png" id="13_0tr35"]
 [ext_resource type="FontFile" uid="uid://c05rnlll14j36" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="13_o2t6a"]
 [ext_resource type="PackedScene" uid="uid://og2bfmenp1mj" path="res://UI/options_panel/options_panel.tscn" id="16_o2t6a"]
 [ext_resource type="Texture2D" uid="uid://vn6yfrx8ulwq" path="res://assets/icons/cog.png" id="17_8gukh"]
@@ -146,10 +148,15 @@ layout_mode = 2
 device_type = 5
 icon = ExtResource("10_0w6e5")
 
-[node name="CardUI5" parent="Toolbar" instance=ExtResource("4_hat8c")]
-visible = false
+[node name="FungalDecomposer" parent="Toolbar" instance=ExtResource("4_hat8c")]
 layout_mode = 2
-device_type = -1
+device_type = 6
+icon = ExtResource("12_8gkfd")
+
+[node name="AeroponicTower" parent="Toolbar" instance=ExtResource("4_hat8c")]
+layout_mode = 2
+device_type = 7
+icon = ExtResource("13_0tr35")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -262,7 +269,7 @@ theme_override_font_sizes/font_size = 26
 theme_override_styles/background = ExtResource("2_dajm1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_dajm1")
 step = 1.0
-value = 50.0
+value = 75.0
 rounded = true
 show_percentage = false
 

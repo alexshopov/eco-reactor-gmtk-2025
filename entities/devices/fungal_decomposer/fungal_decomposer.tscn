@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ytvsov42dkyg"]
+
+[ext_resource type="Script" uid="uid://b6w346xt3lvnl" path="res://entities/devices/fungal_decomposer/fungal_decomposer.gd" id="1_mx1ps"]
+[ext_resource type="PackedScene" uid="uid://bo5h3ipmimcf3" path="res://assets/models/FungalDecomposer.glb" id="2_1nxos"]
+
+[node name="FungalDecomposer" type="Node3D"]
+script = ExtResource("1_mx1ps")
+device_type = 6
+energy_input = 1.0
+biomass_input = 1.0
+co2_output = 2.0
+
+[node name="FungalDecomposer" parent="." instance=ExtResource("2_1nxos")]

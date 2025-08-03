@@ -25,7 +25,7 @@ func _on_tick(_turn: int) -> void:
 
 func spawn_water() -> void:
 	num_water += 1
-	water_regen = Constants.WATER_PASSIVE_REGEN * clamp(num_water, 0, 10)
+	water_regen = Constants.WATER_PASSIVE_REGEN * num_water
 	ResourcesManager.water_tiles = num_water
 	ResourcesManager.water_regen = water_regen
 
@@ -36,6 +36,7 @@ func spawn_forest(pos: Vector3) -> void:
 	pos.y = 0
 	tree.global_position = pos;
 	num_trees += 1
-	co2_sink = Constants.TREE_CO2_SINK * clamp(num_trees, 0, 10)
+
+	co2_sink = round(Constants.TREE_CO2_SINK * num_trees)
 	ResourcesManager.forest_tiles = num_trees
 	ResourcesManager.co2_sink = co2_sink

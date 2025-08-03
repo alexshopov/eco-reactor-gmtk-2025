@@ -5,19 +5,19 @@ const TICK_DURATION_NORMAL : int = 6
 
 const ENERGY_INITIAL_VALUE : float = 100
 
-const O2_INITIAL_VALUE : float = 50
 const O2_STABLE_MIN : float = 50
 const O2_STABLE_MAX : float = 100
+const O2_INITIAL_VALUE : float = 75
 
 const CO2_INITIAL_VALUE : float = 40
 const CO2_STABLE_MIN : float = 20
 const CO2_STABLE_MAX : float = 60
 
-const WATER_INITIAL_VALUE : float = 60
+const WATER_INITIAL_VALUE : float = 50
 const WATER_STABLE_MIN : float = 30
 const WATER_STABLE_MAX : float = 70
 
-const BIOMASS_INITIAL_VALUE : float = 20
+const BIOMASS_INITIAL_VALUE : float = 25
 const BIOMASS_STABLE_MIN : float = 10
 const BIOMASS_STABLE_MAX : float = 40
 
@@ -131,7 +131,7 @@ const DEVICES = {
 			{ "Biomass": 0 },
 		]
 	},
-		Enums.DeviceType.NutrientVat: {
+	Enums.DeviceType.NutrientVat: {
 		"name": "Nutrient Vat",
 		"cost": 10,
 		"inputs": [
@@ -147,6 +147,42 @@ const DEVICES = {
 			{ "O2": 0 },
 			{ "CO2": 0 },
 			{ "Biomass": 1 },
+		]
+	},
+	Enums.DeviceType.FungalDecomposer: {
+		"name": "Fungal Decomposer",
+		"cost": 12,
+		"inputs": [
+			{ "Energy": 1 },
+			{ "Water": 0 },
+			{ "O2": 0 },
+			{ "CO2": 0 },
+			{ "Biomass": 1 },
+		],
+		"outputs": [
+			{ "Energy": 0 },
+			{ "Water": 0 },
+			{ "O2": 0 },
+			{ "CO2": 2 },
+			{ "Biomass": 0 },
+		]
+	},
+	Enums.DeviceType.AeroponicTower: {
+		"name": "Fungal Decomposer",
+		"cost": 18,
+		"inputs": [
+			{ "Energy": 2 },
+			{ "Water": 1 },
+			{ "O2": 0 },
+			{ "CO2": 0 },
+			{ "Biomass": 0 },
+		],
+		"outputs": [
+			{ "Energy": 0 },
+			{ "Water": 0 },
+			{ "O2": 2 },
+			{ "CO2": 0 },
+			{ "Biomass": 0 },
 		]
 	}
 }

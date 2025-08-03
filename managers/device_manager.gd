@@ -14,6 +14,10 @@ var solar_panel_scene : PackedScene
 var biomass_generator_scene : PackedScene
 @export
 var nutrient_vat_scene : PackedScene
+@export
+var fungal_decomposer_scene: PackedScene
+@export
+var aeroponic_tower_scene: PackedScene
 
 var dialog_theme : Theme = load("res://resources/confirmation_dialog.tres")
 var active_tile : Dictionary = {
@@ -47,7 +51,13 @@ func _ready() -> void:
 		},
 		Enums.DeviceType.NutrientVat: {
 			"scene": nutrient_vat_scene
-		}
+		},
+		Enums.DeviceType.FungalDecomposer: {
+			"scene": fungal_decomposer_scene
+		},
+		Enums.DeviceType.AeroponicTower: {
+			"scene": aeroponic_tower_scene
+		},
 	}
 
 	EventBus.tick_completed.connect(_on_tick)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c31ee3eujx740"]
+
+[ext_resource type="Script" uid="uid://b68u3reb2da20" path="res://entities/devices/aeroponic_tower/aeroponic_tower.gd" id="1_xqbub"]
+[ext_resource type="PackedScene" uid="uid://biiaei75g5rp6" path="res://assets/models/AeroponicTower.glb" id="2_ypkrx"]
+
+[node name="AeroponicTower" type="Node3D"]
+script = ExtResource("1_xqbub")
+device_type = 7
+energy_input = 2.0
+water_input = 1.0
+o2_output = 2.0
+
+[node name="AeroponicTower" parent="." instance=ExtResource("2_ypkrx")]
