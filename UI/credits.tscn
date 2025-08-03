@@ -75,9 +75,9 @@ text = "X"
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
 layout_mode = 2
 offset_left = 1.0
-offset_top = 134.5
+offset_top = 135.0
 offset_right = 1053.0
-offset_bottom = 239.5
+offset_bottom = 272.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
@@ -87,7 +87,8 @@ theme_override_font_sizes/normal_font_size = 36
 theme_override_font_sizes/bold_font_size = 47
 bbcode_enabled = true
 text = "[center]Created for GMTK Game Jam 2025
-by Alex Shopov"
+by Alex Shopov
+alexshopov.com"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Panel"]
 layout_mode = 1
@@ -97,13 +98,13 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -527.0
-offset_top = -638.5
+offset_top = -629.5
 offset_right = 526.0
-offset_bottom = -400.5
+offset_bottom = -391.5
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 44
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
 text = "[center][b]Tools[/b]
 Engine: Godot 4.4.1
@@ -115,10 +116,10 @@ Modeling: Blender 4.4.3
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Panel"]
 layout_mode = 2
-offset_left = 2.0
-offset_top = 538.0
-offset_right = 1052.0
-offset_bottom = 899.0
+offset_left = 2.5
+offset_top = 515.5
+offset_right = 1052.5
+offset_bottom = 876.5
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 24
