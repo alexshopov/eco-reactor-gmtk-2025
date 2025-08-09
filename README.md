@@ -11,7 +11,7 @@ Build and stabilize a closed-loop life support system using solar panels, algae 
 
 Each turn, resources naturally increase or decay. Your job is to close the loop before the system collapses.
 
-https://ecodevguy.itch.io/eco-reactor
+[https://ecodevguy.itch.io/eco-reactor](https://ecodevguy.itch.io/eco-reactor-gmtk)
 
 ## Baseline Behavior
 
